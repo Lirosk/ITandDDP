@@ -1,5 +1,6 @@
 # Frontend Labs
-## Музыкальный стриминговый сервис
+## Басенко Кирилл 953504
+### Музыкальный стриминговый сервис
 
 https://www.figma.com/file/YTbVsPjKUyz2CyT7Kh6bkQ/Music-streaming-service-mockup
 
