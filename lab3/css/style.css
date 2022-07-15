@@ -436,19 +436,11 @@ a.hoverable:hover {
 
 
 
-.player__icon > .icon-play:active {
+.player__icon:active > .icon-play {
     display: none;
 }
 
-.player__icon > .icon-play:focus {
-    display: none;
-}
-
-.player__icon > .icon-play:active + .icon-pause{
-    display: block;
-}
-
-.player__icon > .icon-play:focus + .icon-pause {
+.player__icon:active > .icon-play + .icon-pause{
     display: block;
 }
 
@@ -507,8 +499,6 @@ svg > * {
     justify-content: start;
     gap: 6px;
     flex-direction: column;
-
-    flex-shrink: 3;
 
     min-width: 0;
     margin-right: 5px;
@@ -594,4 +584,262 @@ svg > * {
 .player__repeat > .icon > * {
     fill: none;
     color: #5C8CC3;
+}
+
+
+
+.selected-playlist-container {
+    min-width: 320px;
+    max-width: 500px;
+
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.playlist__item {
+    width: 100%;
+}
+
+.playlist__cover {
+    height: 150px;
+    width: 150px;
+}
+
+.playlist__header-container {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.playlist__header__item {
+
+}
+
+.playlist__info-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+.playlist__info__inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+}
+
+.playlist__info__inner-item {
+    
+}
+
+.playlist__title {
+    font-size: 14px;
+    color: #F9F6EF;
+}
+
+.playlist__performer {
+    font-size: 10px;
+    color: #7D868E;
+}
+
+.playlist__additional-info {
+    font-size: 12px;
+    color: #7D868E;
+}
+
+.playlist__toolbar {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.playlist__toolbar__item {
+    height: 100%;
+}
+
+.playlist__add-icon {
+
+}
+
+.playlist__add-icon > .icon {
+    width: 11px;
+    height: 11px;
+}
+
+.playlist__add-icon > .icon > * {
+    fill: none;
+    stroke: #F9F6EF;
+    stroke-width: 1px;
+}
+
+.playlist__add-icon__text {
+    font-size: 12px;
+    color: #F9F6EF;
+}
+
+.playlist__tracks-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    gap: 8px;
+
+    max-width: 400px;
+}
+
+.playlist__tracks__item {
+    height: 20px;
+
+    min-width: 220px;
+    width: 100%;
+
+    
+}
+
+.playlist__track-container {
+    height: 100%;
+
+    border-radius: 3px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: space-between;
+    
+    padding: 0 4px;
+
+    position: relative;
+}
+
+.playlist__track-container:hover {
+    background-color: #252628;
+}
+
+/* if track is played */
+/* .playlist__track-container:active {
+    background-color: #2B2C2D;
+} */
+
+.track__item {
+    position: relative;
+    height: 100%;
+
+    margin: 0 5px;
+
+    min-width: 28px;
+}
+
+.track__item > * {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.track__number {
+    font-size: 10px;
+    color: #858585;
+
+    width: 100%;
+
+    text-align: left;
+}
+
+.track__number-wrap {
+    width: 24px;
+}
+
+.track__number-wrap > * {
+    margin: auto;
+}
+
+.track__button {
+    height: 100%;
+
+    visibility: hidden;
+}
+
+.playlist__track-container:hover > .track__number-wrap > .track__button {
+    visibility: visible;
+}
+
+.playlist__track-container:hover > .track__number-wrap > .track__number {
+    visibility: hidden;
+}
+
+.playlist__track-container:hover .track__button-wrap > .track__button {
+    visibility: visible;
+}
+
+.track__buttons-container .track__button > .icon > * {
+    fill: #767C84;
+    stroke: #767C84;
+}
+
+.track__buttons-container .track__button:hover > .icon > * {
+    fill: #8A898B;
+    stroke: #8A898B;
+}
+
+.track__button > .icon {
+    height: 10px;
+    width: 10px;
+
+    stroke-linejoin: round;
+}
+
+.track__title {
+    font-size: 10px;
+    color: #F9F6EF;
+
+    width: 100%;
+}
+
+.track__title-wrap {
+    min-width: 80;
+    max-width: 283px;
+
+    margin-left: 0;
+
+    width: 100%;
+}
+
+.track__buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 8px;
+
+    height: 10px;
+}
+
+.track__button-wrap {
+    width: 10px;
+    height: 100%;
+}
+
+.track__duration {
+    font-size: 10px;
+    color: #7D868E;
+}
+
+.track__dutaion-wrap {
+    width: 23px;
+}
+
+.playlist__stats {
+    font-size: 8px;
+    color: #757575;
+
+    margin-right: 10px;
+}
+
+.playlist__stats-wrap {
+    text-align: end;
+    margin-bottom: 8px;
 }
