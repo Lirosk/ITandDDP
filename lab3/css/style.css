@@ -6,13 +6,14 @@
 }
 
 html {
+    position: relative;
+
     height: 100%;
     width: 100%;
 }
 
 
 body {
-    height: 100%;
     background-color: #272829;
 }
 
@@ -36,11 +37,9 @@ footer {
 
 
 main {
-    position: absolute;
-    top: 48px;
-    /* bottom: 66px; */
-    bottom: 0px;
-
+    position: relative;
+    padding-top: 48px;
+    padding-bottom: 79px;
     width: 100%;
 }
 
@@ -862,4 +861,48 @@ svg > * {
 .playlist__stats-wrap {
     text-align: end;
     margin-bottom: 8px;
+}
+
+
+
+.playlists-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.multi-line-playlists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 25px;
+
+    padding: 14px 19px;
+}
+
+.multi-line-playlists__item {
+
+}
+
+.cover-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 6px;
+}
+
+.album__title {
+    font-size: 12px;
+    color: #F9F6EF;
+}
+
+.album__performer {
+    font-size: 12px;
+    color: #7D868E;
+}
+
+.album__release-date {
+    font-size: 12px;
+    color: #7D868E;
 }
