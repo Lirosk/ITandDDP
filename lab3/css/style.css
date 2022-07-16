@@ -695,14 +695,13 @@ svg > * {
 
 .playlist__tracks__item {
     height: 24px;
-
     min-width: 220px;
     width: 100%;
 
     
 }
 
-.playlist__track-container {
+.track-container {
     height: 100%;
 
     border-radius: 3px;
@@ -718,26 +717,18 @@ svg > * {
     position: relative;
 }
 
-.playlist__track-container:hover {
+.track-container:hover {
     background-color: #252628;
 }
 
 /* if track is played */
-/* .playlist__track-container:active {
+/* .track-container:active {
     background-color: #2B2C2D;
 } */
 
 .track__item {
+    position: relative;
     margin: auto 5px;
-}
-
-.track__item > * {
-    display: inline-block;
-    vertical-align: middle;
-
-    /* position: absolute;
-    top: 50%;
-    transform: translateY(-50%); */
 }
 
 .track__number {
@@ -760,27 +751,44 @@ svg > * {
     margin: auto;
 }
 
-.track__number-wrap > .track__button {
+/* .track__number-wrap > .track__button {
     position: absolute;
     left: 0;
-}
+} */
+
 
 .track__button {
-    height: 100%;
-
+    position: absolute;
+    left: 0;
     visibility: hidden;
 }
 
-.playlist__track-container:hover > .track__number-wrap > .track__button {
+.track__cover + .track__button {
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+/* .track-container:hover > .track__number-wrap > .track__button {
     visibility: visible;
 }
 
-.playlist__track-container:hover > .track__number-wrap > .track__number {
+.track-container:hover > .track__number-wrap > .track__number {
+    visibility: hidden;
+}
+ */
+
+.track-container:hover  .track__button {
+    visibility: visible;
+}
+
+.track-container:hover  .track__number {
     visibility: hidden;
 }
 
-.playlist__track-container:hover .track__button-wrap > .track__button {
-    visibility: visible;
+.track-container:hover .track__cover {
+    filter: brightness(50%);
 }
 
 .track__buttons-container .track__button > .icon > * {
@@ -798,33 +806,24 @@ svg > * {
     width: 15px;
 }
 
+.track__button > .icon > * {
+    stroke: none;
+}
+
 .track__buttons-container .track__button > .icon > * {
     stroke-width: 2px;
-}
-
-.track__number-wrap .track__button > .icon {
-    transform: rotate(90deg);
-}
-
-.track__number-wrap .track__button > .icon > * {
-    stroke: none;
 }
 
 .track__title {
     font-size: 12px;
     color: #F9F6EF;
-
     width: 100%;
-
     font-weight: normal;
 }
 
 .track__title-wrap {
     min-width: 80px;
-    max-width: 283px;
-
     margin-left: 0;
-
     width: 100%;
 }
 
@@ -838,6 +837,7 @@ svg > * {
 }
 
 .track__button-wrap {
+    position: relative;
     width: 15px;
     height: 100%;
 }
@@ -882,7 +882,6 @@ svg > * {
 }
 
 .multi-line-playlists__item {
-
 }
 
 .cover-container {
@@ -905,4 +904,29 @@ svg > * {
 .album__release-date {
     font-size: 12px;
     color: #7D868E;
+}
+
+
+
+.multi-line-tracks {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 7px;
+
+    padding: 9px 16px;
+}
+
+.multi-line-tracks__item {
+    width: 100%;
+    height: 46px;
+}
+
+.track__cover {
+    width: 40px;
+    height: 40px;
+}
+
+.rot90 {
+    transform: rotate(90deg);
 }
