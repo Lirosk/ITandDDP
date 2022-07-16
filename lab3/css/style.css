@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+
+    box-sizing: border-box;
 }
 
 html {
@@ -638,17 +640,17 @@ svg > * {
 }
 
 .playlist__title {
-    font-size: 14px;
+    font-size: 16px;
     color: #F9F6EF;
 }
 
 .playlist__performer {
-    font-size: 10px;
+    font-size: 12px;
     color: #7D868E;
 }
 
 .playlist__additional-info {
-    font-size: 12px;
+    font-size: 14px;
     color: #7D868E;
 }
 
@@ -693,7 +695,7 @@ svg > * {
 }
 
 .playlist__tracks__item {
-    height: 20px;
+    height: 24px;
 
     min-width: 220px;
     width: 100%;
@@ -727,35 +729,41 @@ svg > * {
 } */
 
 .track__item {
-    position: relative;
-    height: 100%;
-
-    margin: 0 5px;
-
-    min-width: 28px;
+    margin: auto 5px;
 }
 
 .track__item > * {
-    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+
+    /* position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
 }
 
 .track__number {
-    font-size: 10px;
+    display: inline;
+
+    font-size: 12px;
     color: #858585;
 
-    width: 100%;
+    padding-left: 3px;
 
     text-align: left;
 }
 
 .track__number-wrap {
+    position: relative;
     width: 24px;
 }
 
 .track__number-wrap > * {
     margin: auto;
+}
+
+.track__number-wrap > .track__button {
+    position: absolute;
+    left: 0;
 }
 
 .track__button {
@@ -787,21 +795,33 @@ svg > * {
 }
 
 .track__button > .icon {
-    height: 10px;
-    width: 10px;
+    height: 15px;
+    width: 15px;
+}
 
-    stroke-linejoin: round;
+.track__buttons-container .track__button > .icon > * {
+    stroke-width: 2px;
+}
+
+.track__number-wrap .track__button > .icon {
+    transform: rotate(90deg);
+}
+
+.track__number-wrap .track__button > .icon > * {
+    stroke: none;
 }
 
 .track__title {
-    font-size: 10px;
+    font-size: 12px;
     color: #F9F6EF;
 
     width: 100%;
+
+    font-weight: normal;
 }
 
 .track__title-wrap {
-    min-width: 80;
+    min-width: 80px;
     max-width: 283px;
 
     margin-left: 0;
@@ -815,25 +835,25 @@ svg > * {
     justify-content: start;
     gap: 8px;
 
-    height: 10px;
+    height: 15px;
 }
 
 .track__button-wrap {
-    width: 10px;
+    width: 15px;
     height: 100%;
 }
 
 .track__duration {
-    font-size: 10px;
+    font-size: 12px;
     color: #7D868E;
-}
 
-.track__dutaion-wrap {
-    width: 23px;
+    position: relative;
+    transform: none;
+    top: 0;
 }
 
 .playlist__stats {
-    font-size: 8px;
+    font-size: 10px;
     color: #757575;
 
     margin-right: 10px;
