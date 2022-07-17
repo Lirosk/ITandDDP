@@ -695,13 +695,18 @@ svg > * {
 
 .playlist__add-icon > .icon > * {
     fill: none;
-    stroke: #F9F6EF;
-    stroke-width: 1px;
+    stroke: #767C84;
+    stroke-width: 1.5px;
+    
+}
+
+.playlist__add-icon:hover > .icon > * {
+    stroke: #8A898B;
 }
 
 .playlist__add-icon__text {
     font-size: 12px;
-    color: #F9F6EF;
+    color: #7D868E;
 }
 
 .playlist__tracks-container {
