@@ -57,8 +57,9 @@ span {
 }
 
 .centered {
-    margin: auto;
-
+    margin-left: auto;
+    margin-right: auto;
+    
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -230,6 +231,7 @@ a.hoverable:hover {
 }
 
 .music-search {
+    position: relative;
     height: 64px;
 }
 
