@@ -721,10 +721,9 @@ svg > * {
     background-color: #252628;
 }
 
-/* if track is played */
-/* .track-container:active {
+.track-container:active {
     background-color: #2B2C2D;
-} */
+}
 
 .track__item {
     position: relative;
@@ -751,12 +750,6 @@ svg > * {
     margin: auto;
 }
 
-/* .track__number-wrap > .track__button {
-    position: absolute;
-    left: 0;
-} */
-
-
 .track__button {
     position: absolute;
     left: 0;
@@ -769,15 +762,6 @@ svg > * {
 
     transform: translate(-50%, -50%);
 }
-
-/* .track-container:hover > .track__number-wrap > .track__button {
-    visibility: visible;
-}
-
-.track-container:hover > .track__number-wrap > .track__number {
-    visibility: hidden;
-}
- */
 
 .track-container:hover  .track__button {
     visibility: visible;
@@ -822,7 +806,7 @@ svg > * {
 }
 
 .track__title-wrap {
-    min-width: 80px;
+    min-width: 40px;
     margin-left: 0;
     width: 100%;
 }
@@ -925,8 +909,50 @@ svg > * {
 .track__cover {
     width: 40px;
     height: 40px;
+
+    border-radius: 3px;
 }
 
 .rot90 {
     transform: rotate(90deg);
+}
+
+
+
+.found-tracks {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    min-width: 320px;
+    padding: 14px 19px 16px;
+    height: 176px;
+
+    gap: 14px;
+}
+
+.found-tracks-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+
+    gap: 21px;
+    row-gap: 4px;
+
+    overflow: hidden;
+
+    max-height: 116px;
+}
+
+.found-tracks__item {
+    height: 36px;
+    min-width: 130px;
+    max-width: 314px;
+    width: 100%;
+}
+
+.found-tracks .track__cover {
+    width: 30px;
+    height: 30px;
 }
