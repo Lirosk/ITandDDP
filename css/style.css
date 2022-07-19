@@ -504,6 +504,10 @@ a.hoverable:hover {
     height: 28px;
 }
 
+.player__icon>.icon>* {
+    fill: var(--main-svg-color);
+}
+
 .player__icon>.icon-play {
     position: absolute;
 
@@ -549,6 +553,12 @@ a.hoverable:hover {
 .player__prev>svg {
     width: 11px;
     height: 11px;
+}
+
+.player__next>svg>*,
+.player__prev>svg>* {
+    stroke: var(--main-svg-color);
+    fill: var(--main-svg-color);
 }
 
 .player__item>* {
@@ -680,7 +690,7 @@ a.hoverable:hover {
 
 .player__repeat>.icon>* {
     fill: none;
-    color: var(--main-svg-color);
+    stroke: var(--main-svg-color);
 }
 
 
@@ -858,7 +868,7 @@ a.hoverable:hover {
     transform: translate(-50%, -50%);
 }
 
-.track__cover+.track__button>svg>*{
+.track__cover+.track__button>.icon>*{
     fill: var(--tertiary-svg-color);
 }
 
