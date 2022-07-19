@@ -120,7 +120,6 @@ main {
 
 button {
     border: none;
-    outline: none;
     background-color: var(--no-bg-color);
 }
 
@@ -405,16 +404,17 @@ a.hoverable:hover {
     justify-content: start;
     overflow: hidden;
 
+    height: 112px;
+
     flex-wrap: wrap;
-    height: 110px;
-    gap: 25px;
+    gap: 22px;
 }
 
 .one-line-playlists__album-cover {
     display: block;
     position: relative;
-    height: 110px;
-    width: 110px;
+
+    margin: 1px;
 }
 
 .button-icon>.icon {
@@ -969,7 +969,7 @@ a.hoverable:hover {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
-    gap: 25px;
+    gap: 22px;
 
     padding: 14px 19px;
 }
