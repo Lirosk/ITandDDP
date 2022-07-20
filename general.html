@@ -9,10 +9,11 @@
 </head>
 
 <body>
+
     <header>
-        <div class="header__content bordered">
-            <div class="header__container centered-h main-width">
-                <div class="header__item header__refs-container">
+        <div class="header__content">
+            <div class="header__container">
+                <div class="header__refs-container">
                     <a class="header__ref here-i-am" href="general.html">
                         General
                     </a>
@@ -23,7 +24,7 @@
                         My music
                     </a>
                 </div>
-                <a class="header__item header__ref ref-text" href="signin.html">
+                <a class="header__ref ref-text" href="signin.html">
                     Log out
                 </a>
             </div>
@@ -31,117 +32,110 @@
     </header>
 
     <main>
-        <div class="general-container main-width centered-h">
-            <div class="general-container__item">
-                <form class="music-search primary-bgc bordered">
-                    <div class="placeholder bordered centered">
-                        <input class="music-search__input bordered input-text" type="text" placeholder="Search music"
-                            required>
-                        <button class="music-search__button">
-                            <img class="icon" src="./static/search.png">
+        <div class="general-container">
+            <form class="music-search">
+                <div class="search-wrap">
+                    <input class="music-search__input" type="text" placeholder="Search music" required>
+                    <button class="music-search__button">
+                        <img class="icon" src="./static/search.png">
+                    </button>
+                </div>
+            </form>
+
+            <div class="one-line-playlists">
+                <div class="one-line-playlists__tools">
+                    <h3 class="primary-text">Suggestet playlists 1</h3>
+                    <a class="ref-text" href="./my_playlists.html">Show all</a>
+                </div>
+                <div class="one-line-playlists__container">
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist1">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
                         </button>
                     </div>
-                </form>
-            </div>
-
-            <div class="general-container__item">
-                <div class="one-line-playlists primary-bgc bordered">
-                    <div class="one-line-playlists__tools">
-                        <h3 class="primary-text">Suggestet playlists 1</h3>
-                        <a class="ref-text" href="./my_playlists.html">Show all</a>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist2">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
                     </div>
-                    <div class="one-line-playlists__container">
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist1">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist2">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist3">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist4">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist5">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist3">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
+                    </div>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist4">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
+                    </div>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist5">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div class="general-container__item">
-                <div class="one-line-playlists primary-bgc bordered">
-                    <div class="one-line-playlists__tools">
-                        <h3 class="primary-text">Suggestet playlists 2</h3>
-                        <a class="ref-text" href="./my_playlists.html">Show all</a>
+            <div class="one-line-playlists">
+                <div class="one-line-playlists__tools">
+                    <h3 class="primary-text">Suggestet playlists 2</h3>
+                    <a class="ref-text" href="./my_playlists.html">Show all</a>
+                </div>
+                <div class="one-line-playlists__container">
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist1">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
                     </div>
-                    <div class="one-line-playlists__container">
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist1">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist2">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist3">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist4">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
-                        <div class="one-line-playlists__album-cover">
-                            <a class="button-icon" href="selected_playlist.html">
-                                <img class="icon" src="./static/album_cover.png" alt="playlist5">
-                            </a>
-                            <button class="play-button">
-                                <img class="icon" src="./static/play.svg">
-                            </button>
-                        </div>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist2">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
+                    </div>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist3">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
+                    </div>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist4">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
+                    </div>
+                    <div class="one-line-playlists__album-cover">
+                        <a class="button-icon" href="selected_playlist.html">
+                            <img class="icon" src="./static/album_cover.png" alt="playlist5">
+                        </a>
+                        <button class="play-button">
+                            <img class="icon" src="./static/play.svg">
+                        </button>
                     </div>
                 </div>
             </div>
@@ -149,90 +143,74 @@
     </main>
 
     <footer>
-        <div class="footer__content primary-bgc main-width bordered">
+        <div class="footer__content">
             <div class="player-container">
-                <div class="player__item">
-                    <button class="player__icon">
-                        <svg class="icon">
-                            <circle cx="50%" cy="50%" r="13px" />
-                        </svg>
-                        <svg class="icon-play">
-                            <polygon points="0 0, 0 11, 9 5.5" fill="#121212" />
-                        </svg>
-                        <svg class="icon-pause">
-                            <rect x="0" y="0" width="4px" height="11px" />
-                            <rect x="7px" y="0" width="4px" height="11px" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="player__item">
-                    <button class="player__prev">
-                        <svg class="icon">
-                            <rect x="0" y="0" width="2" height="11" />
-                            <polygon points="2 5.5, 10 11, 10 0" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="player__item">
-                    <button class="player__next">
-                        <svg class="icon">
-                            <rect x="9" y="0" width="2" height="11" />
-                            <polygon points="0 0, 0 11, 9 5.5" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="player__item cover-wrap">
+                <button class="player__icon">
+                    <svg class="icon">
+                        <circle cx="50%" cy="50%" r="13px" />
+                    </svg>
+                    <svg class="icon-play">
+                        <polygon points="0 0, 0 11, 9 5.5" fill="#121212" />
+                    </svg>
+                    <svg class="icon-pause">
+                        <rect x="0" y="0" width="4px" height="11px" />
+                        <rect x="7px" y="0" width="4px" height="11px" />
+                    </svg>
+                </button>
+                <button class="player__prev">
+                    <svg class="icon">
+                        <rect x="0" y="0" width="2" height="11" />
+                        <polygon points="2 5.5, 10 11, 10 0" />
+                    </svg>
+                </button>
+                <button class="player__next">
+                    <svg class="icon">
+                        <rect x="9" y="0" width="2" height="11" />
+                        <polygon points="0 0, 0 11, 9 5.5" />
+                    </svg>
+                </button>
+                <div class="cover-wrap">
                     <img src="./static/album_cover.png" alt="playlist1" class="player__cover">
                 </div>
-                <div class="player__item slider-wrap">
+                <div class="slider-wrap">
                     <div class="player__audio-container">
-                        <div class="audio__item">
-                            <div class="audio__title-wrap">
-                                <div class="title-wrap__item audio__title">
-                                    <span class="title__item song__title">
-                                        Listened Author
-                                    </span>
-                                    <span class="title__item song__performer">
-                                        Listened Performer
-                                    </span>
-                                </div>
-                                <span class="title-wrap__item audio__progress-time">mm:ss</span>
+                        <div class="audio__title-wrap">
+                            <div class="audio__title">
+                                <span class="song__title">
+                                    Listened Author
+                                </span>
+                                <span class="song__performer">
+                                    Listened Performer
+                                </span>
                             </div>
+                            <span class="audio__progress-time">mm:ss</span>
                         </div>
-                        <div class="audio__item">
-                            <div class="audio__slider">
-                                <div class="audio__progress"></div>
-                            </div>
+                        <div class="audio__slider">
+                            <div class="audio__slider__progress"></div>
                         </div>
                     </div>
                 </div>
-                <div class="player__item">
-                    <div class="player__volume-slider">
-                        <div class="player__volume-set"></div>
-                    </div>
+                <div class="player__volume-slider">
+                    <div class="player__volume-set"></div>
                 </div>
-                <div class="player__item">
-                    <button class="player__shuffle">
-                        <svg class="icon" viewBox="0 0 20 16" width="20px" height="16px">
-                            <polygon points="0 0, 20 16" />
-                            <polygon points="0 16, 20 0" />
+                <button class="player__shuffle">
+                    <svg class="icon" viewBox="0 0 20 16" width="20px" height="16px">
+                        <polygon points="0 0, 20 16" />
+                        <polygon points="0 16, 20 0" />
 
-                            <polygon points="20 16, 20 12, 16 16" />
-                            <polygon points="20 0, 20 4, 16 0" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="player__item">
-                    <button class="player__repeat">
-                        <svg class="icon" viewBox="0 0 20 16" width="20px" height="16px">
-                            <polyline points="3 0, 17 0, 17 5" />
-                            <polyline points="3 11, 3 16, 17 16" />
+                        <polygon points="20 16, 20 12, 16 16" />
+                        <polygon points="20 0, 20 4, 16 0" />
+                    </svg>
+                </button>
+                <button class="player__repeat">
+                    <svg class="icon" viewBox="0 0 20 16" width="20px" height="16px">
+                        <polyline points="3 0, 17 0, 17 5" />
+                        <polyline points="3 11, 3 16, 17 16" />
 
-                            <polyline points="14 2, 17 5, 20 2" />
-                            <polyline points="0 14,3 11, 6 14" />
-                        </svg>
-                    </button>
-                </div>
+                        <polyline points="14 2, 17 5, 20 2" />
+                        <polyline points="0 14,3 11, 6 14" />
+                    </svg>
+                </button>
             </div>
         </div>
     </footer>
