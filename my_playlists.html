@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="description" content="General page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/header.css">
     <title>My playlists</title>
 </head>
 
@@ -183,7 +185,7 @@
                     <img src="./static/album_cover.png" alt="playlist1" class="player__cover">
                 </div>
                 <div class="slider-wrap">
-                    <div class="player__audio-container">
+                    <div class="player__title-container">
                         <div class="audio__title-wrap">
                             <div class="audio__title">
                                 <span class="song__title">
@@ -196,12 +198,12 @@
                             <span class="audio__progress-time">mm:ss</span>
                         </div>
                         <div class="audio__slider">
-                            <div class="audio__slider__progress"></div>
+                            <input class="slider" type="range" value="42" min="0" max="100" />
                         </div>
                     </div>
                 </div>
                 <div class="player__volume-slider">
-                    <div class="player__volume-set"></div>
+                    <input class="slider" type="range" value="42" min="0" max="100" />
                 </div>
                 <button class="player__shuffle">
                     <svg class="icon" viewBox="0 0 20 16" width="20px" height="16px">
@@ -224,7 +226,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>
