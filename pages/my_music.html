@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="description" content="General page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <title>Search</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <title>My music</title>
 </head>
 
 <body>
@@ -16,13 +16,13 @@
         <div class="header__content">
             <div class="header__container">
                 <div class="header__refs-container">
-                    <a class="header__ref here-i-am" href="general.html">
+                    <a class="header__ref" href="general.html">
                         General
                     </a>
                     <a class="header__ref" href="my_playlists.html">
                         My playlists
                     </a>
-                    <a class="header__ref" href="my_music.html">
+                    <a class="header__ref here-i-am" href="my_music.html">
                         My music
                     </a>
                 </div>
@@ -35,23 +35,19 @@
 
     <main>
         <div class="general-container">
-            <form class="music-search">
-                <div class="search-wrap">
-                    <input class="music-search__input" type="text" placeholder="Search music" required>
-                    <button class="music-search__button">
-                        <img class="icon" src="./static/search.png">
-                    </button>
-                </div>
-            </form>
-            <div class="found-tracks">
-                <div class="one-line-playlists__tools">
-                    <h3 class="primary-text">Found tracks</h3>
-                    <a class="ref-text" href="./my_music.html">Show all</a>
-                </div>
-                <div class="found-tracks-container">
+            <div class="tracks-container">
+                <form class="music-search">
+                    <div class="search-wrap">
+                        <input class="music-search__input" type="text" placeholder="Search music" required>
+                        <button class="music-search__button">
+                            <img class="icon" src="../static/search.png">
+                        </button>
+                    </div>
+                </form>
+                <div class="multi-line-tracks">
                     <div class="track-container">
                         <div class="track__cover-wrap">
-                            <img class="track__cover" alt="playlist1" src="./static/album_cover.png" />
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
                             <div class="play-pause-button-wrap">
                                 <button class="play-pause-button"></button>
                             </div>
@@ -61,7 +57,7 @@
                                 <span class="song__title">
                                     Title
                                 </span>
-                                <a class="song__performer" href="./search.html?search=Performer">
+                                <a class="song__performer" href="search.html">
                                     Performer
                                 </a>
                             </div>
@@ -92,7 +88,7 @@
                     </div>
                     <div class="track-container">
                         <div class="track__cover-wrap">
-                            <img class="track__cover" alt="playlist1" src="./static/album_cover.png" />
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
                             <div class="play-pause-button-wrap">
                                 <button class="play-pause-button"></button>
                             </div>
@@ -102,7 +98,7 @@
                                 <span class="song__title">
                                     Title
                                 </span>
-                                <a class="song__performer" href="./search.html?search=Performer">
+                                <a class="song__performer" href="search.html">
                                     Performer
                                 </a>
                             </div>
@@ -133,7 +129,7 @@
                     </div>
                     <div class="track-container">
                         <div class="track__cover-wrap">
-                            <img class="track__cover" alt="playlist1" src="./static/album_cover.png" />
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
                             <div class="play-pause-button-wrap">
                                 <button class="play-pause-button"></button>
                             </div>
@@ -143,7 +139,7 @@
                                 <span class="song__title">
                                     Title
                                 </span>
-                                <a class="song__performer" href="./search.html?search=Performer">
+                                <a class="song__performer" href="search.html">
                                     Performer
                                 </a>
                             </div>
@@ -174,7 +170,7 @@
                     </div>
                     <div class="track-container">
                         <div class="track__cover-wrap">
-                            <img class="track__cover" alt="playlist1" src="./static/album_cover.png" />
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
                             <div class="play-pause-button-wrap">
                                 <button class="play-pause-button"></button>
                             </div>
@@ -184,7 +180,7 @@
                                 <span class="song__title">
                                     Title
                                 </span>
-                                <a class="song__performer" href="./search.html?search=Performer">
+                                <a class="song__performer" href="search.html">
                                     Performer
                                 </a>
                             </div>
@@ -215,7 +211,7 @@
                     </div>
                     <div class="track-container">
                         <div class="track__cover-wrap">
-                            <img class="track__cover" alt="playlist1" src="./static/album_cover.png" />
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
                             <div class="play-pause-button-wrap">
                                 <button class="play-pause-button"></button>
                             </div>
@@ -225,7 +221,7 @@
                                 <span class="song__title">
                                     Title
                                 </span>
-                                <a class="song__performer" href="./search.html?search=Performer">
+                                <a class="song__performer" href="search.html">
                                     Performer
                                 </a>
                             </div>
@@ -254,52 +250,209 @@
                             <span class="track__duration">mm:ss</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="one-line-playlists">
-                <div class="one-line-playlists__tools">
-                    <h3 class="primary-text">Found playlists</h3>
-                    <a class="ref-text" href="./my_playlists.html">Show all</a>
-                </div>
-                <div class="one-line-playlists__container">
-                    <div class="album__cover">
-                        <a class="button-icon" href="selected_playlist.html">
-                            <img class="icon" src="./static/album_cover.png" alt="playlist1">
-                        </a>
-                        <div class="play-pause-button-wrap">
-                            <button class="play-pause-button"></button>
+                    <div class="track-container">
+                        <div class="track__cover-wrap">
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
+                            <div class="play-pause-button-wrap">
+                                <button class="play-pause-button"></button>
+                            </div>
+                        </div>
+                        <div class="track__title-wrap">
+                            <div class="audio__title">
+                                <span class="song__title">
+                                    Title
+                                </span>
+                                <a class="song__performer" href="search.html">
+                                    Performer
+                                </a>
+                            </div>
+                        </div>
+                        <div class="track__buttons-container">
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="0" x2="13" y1="1" y2="1" />
+                                        <line x1="0" x2="6" y1="7" y2="7" />
+                                        <line x1="0" x2="6" y1="13" y2="13" />
+                                        <polygon points="9 7, 9 12, 13 9.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="1" x2="14" y1="1" y2="14" />
+                                        <line x1="1" x2="14" y1="14" y2="1" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="track__duration">mm:ss</span>
                         </div>
                     </div>
-                    <div class="album__cover">
-                        <a class="button-icon" href="selected_playlist.html">
-                            <img class="icon" src="./static/album_cover.png" alt="playlist1">
-                        </a>
-                        <div class="play-pause-button-wrap">
-                            <button class="play-pause-button"></button>
+                    <div class="track-container">
+                        <div class="track__cover-wrap">
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
+                            <div class="play-pause-button-wrap">
+                                <button class="play-pause-button"></button>
+                            </div>
+                        </div>
+                        <div class="track__title-wrap">
+                            <div class="audio__title">
+                                <span class="song__title">
+                                    Title
+                                </span>
+                                <a class="song__performer" href="search.html">
+                                    Performer
+                                </a>
+                            </div>
+                        </div>
+                        <div class="track__buttons-container">
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="0" x2="13" y1="1" y2="1" />
+                                        <line x1="0" x2="6" y1="7" y2="7" />
+                                        <line x1="0" x2="6" y1="13" y2="13" />
+                                        <polygon points="9 7, 9 12, 13 9.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="1" x2="14" y1="1" y2="14" />
+                                        <line x1="1" x2="14" y1="14" y2="1" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="track__duration">mm:ss</span>
                         </div>
                     </div>
-                    <div class="album__cover">
-                        <a class="button-icon" href="selected_playlist.html">
-                            <img class="icon" src="./static/album_cover.png" alt="playlist1">
-                        </a>
-                        <div class="play-pause-button-wrap">
-                            <button class="play-pause-button"></button>
+                    <div class="track-container">
+                        <div class="track__cover-wrap">
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
+                            <div class="play-pause-button-wrap">
+                                <button class="play-pause-button"></button>
+                            </div>
+                        </div>
+                        <div class="track__title-wrap">
+                            <div class="audio__title">
+                                <span class="song__title">
+                                    Title
+                                </span>
+                                <a class="song__performer" href="search.html">
+                                    Performer
+                                </a>
+                            </div>
+                        </div>
+                        <div class="track__buttons-container">
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="0" x2="13" y1="1" y2="1" />
+                                        <line x1="0" x2="6" y1="7" y2="7" />
+                                        <line x1="0" x2="6" y1="13" y2="13" />
+                                        <polygon points="9 7, 9 12, 13 9.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="1" x2="14" y1="1" y2="14" />
+                                        <line x1="1" x2="14" y1="14" y2="1" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="track__duration">mm:ss</span>
                         </div>
                     </div>
-                    <div class="album__cover">
-                        <a class="button-icon" href="selected_playlist.html">
-                            <img class="icon" src="./static/album_cover.png" alt="playlist1">
-                        </a>
-                        <div class="play-pause-button-wrap">
-                            <button class="play-pause-button"></button>
+                    <div class="track-container">
+                        <div class="track__cover-wrap">
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
+                            <div class="play-pause-button-wrap">
+                                <button class="play-pause-button"></button>
+                            </div>
+                        </div>
+                        <div class="track__title-wrap">
+                            <div class="audio__title">
+                                <span class="song__title">
+                                    Title
+                                </span>
+                                <a class="song__performer" href="search.html">
+                                    Performer
+                                </a>
+                            </div>
+                        </div>
+                        <div class="track__buttons-container">
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="0" x2="13" y1="1" y2="1" />
+                                        <line x1="0" x2="6" y1="7" y2="7" />
+                                        <line x1="0" x2="6" y1="13" y2="13" />
+                                        <polygon points="9 7, 9 12, 13 9.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="1" x2="14" y1="1" y2="14" />
+                                        <line x1="1" x2="14" y1="14" y2="1" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="track__duration">mm:ss</span>
                         </div>
                     </div>
-                    <div class="album__cover">
-                        <a class="button-icon" href="selected_playlist.html">
-                            <img class="icon" src="./static/album_cover.png" alt="playlist1">
-                        </a>
-                        <div class="play-pause-button-wrap">
-                            <button class="play-pause-button"></button>
+                    <div class="track-container">
+                        <div class="track__cover-wrap">
+                            <img class="track__cover" alt="playlist1" src="../static/album_cover.png" />
+                            <div class="play-pause-button-wrap">
+                                <button class="play-pause-button"></button>
+                            </div>
+                        </div>
+                        <div class="track__title-wrap">
+                            <div class="audio__title">
+                                <span class="song__title">
+                                    Title
+                                </span>
+                                <a class="song__performer" href="search.html">
+                                    Performer
+                                </a>
+                            </div>
+                        </div>
+                        <div class="track__buttons-container">
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="0" x2="13" y1="1" y2="1" />
+                                        <line x1="0" x2="6" y1="7" y2="7" />
+                                        <line x1="0" x2="6" y1="13" y2="13" />
+                                        <polygon points="9 7, 9 12, 13 9.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="track__button-wrap">
+                                <button class="track__button">
+                                    <svg class="icon">
+                                        <line x1="1" x2="14" y1="1" y2="14" />
+                                        <line x1="1" x2="14" y1="14" y2="1" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="track__duration">mm:ss</span>
                         </div>
                     </div>
                 </div>
@@ -335,7 +488,7 @@
                     </svg>
                 </button>
                 <div class="cover-wrap">
-                    <img src="./static/album_cover.png" alt="playlist1" class="player__cover">
+                    <img src="../static/album_cover.png" alt="playlist1" class="player__cover">
                 </div>
                 <div class="slider-wrap">
                     <div class="player__title-container">
