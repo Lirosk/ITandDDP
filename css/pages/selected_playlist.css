@@ -1,0 +1,43 @@
+@import url("../style.css");
+
+@import url("../organisms/header.css");
+@import url("../organisms/footer.css");
+@import url("../organisms/playlist.css");
+@import url("../organisms/track-container.css");
+
+.selected-playlist-container {
+    min-width: var(--min-width);
+    max-width: 500px;
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+
+    background-color: var(--main-bg-color);
+
+    border: var(--main-border-width) solid var(--main-border-color);
+    border-radius: var(--main-border-radius);
+
+    margin: 5% auto auto;
+}
+
+.selected-playlist-container>* {
+    width: 100%;
+}
+
+.album__title {
+    font-size: var(--secondary-font-size);
+    color: var(--main-text-color);
+}
+
+.album__performer {
+    font-size: var(--secondary-font-size);
+    color: var(--secondary-text-color);
+}
+
+.album__release-date {
+    font-size: var(--secondary-font-size);
+    color: var(--secondary-text-color);
+}

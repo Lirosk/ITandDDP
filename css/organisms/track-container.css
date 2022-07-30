@@ -1,0 +1,156 @@
+.track-container:active .play-pause-button {
+    margin: 0;
+
+    height: 100%;
+    width: 100%;
+
+    border-style: double;
+    border-width: 0 0 0 var(--play-pause-button__width);
+}
+
+.track-container:hover .play-pause-button {
+    visibility: visible;
+}
+
+.track-container {
+    border-radius: 3px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: space-between;
+
+    padding: 3px 4px;
+
+    position: relative;
+}
+
+.track-container:hover {
+    background-color: var(--hover-bg-color);
+}
+
+.track-container:active {
+    background-color: var(--active-bg-color);
+}
+
+.track-container>* {
+    margin: auto 5px;
+}
+
+.track__cover {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 3px;
+}
+
+.track__number {
+    display: inline;
+
+    font-size: var(--secondary-font-size);
+    color: var(--track-num-text-color);
+
+    padding-left: 3px;
+
+    text-align: left;
+}
+
+.track__number-wrap {
+    position: relative;
+    width: 24px;
+}
+
+.track__number-wrap>* {
+    margin: auto;
+}
+
+.track__button {
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+}
+
+.track__cover-wrap {
+    height: 100%;
+    position: relative;
+}
+
+.track__cover-wrap .icon-play,
+.track__number-wrap .icon {
+    transform: rotate(90deg);
+}
+
+.track__number-wrap .icon>* {
+    fill: var(--main-svg-color);
+}
+
+.track-container:hover .track__number {
+    visibility: hidden;
+}
+
+.track-container:hover .track__button {
+    visibility: visible;
+}
+
+.track-container:hover .track__cover {
+    filter: brightness(50%);
+}
+
+.track__buttons-container .track__button>.icon>* {
+    fill: var(--secondary-svg-color);
+    stroke: var(--secondary-svg-color);
+}
+
+.track__buttons-container .track__button:hover>.icon>* {
+    fill: var(--hover-svg-color);
+    stroke: var(--hover-svg-color);
+}
+
+.track__button>.icon {
+    height: 15px;
+    width: 15px;
+}
+
+.track__button>.icon>* {
+    stroke: none;
+}
+
+.track__buttons-container .track__button>.icon>* {
+    stroke-width: 2px;
+}
+
+.track__title {
+    font-size: var(--secondary-font-size);
+    color: var(--main-text-color);
+    width: 100%;
+    font-weight: normal;
+}
+
+.track__title-wrap {
+    min-width: 40px;
+    margin-left: 0;
+    width: 100%;
+}
+
+.track__buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 8px;
+
+    height: 15px;
+}
+
+.track__button-wrap {
+    position: relative;
+    width: 15px;
+    height: 100%;
+}
+
+.track__duration {
+    display: block;
+
+    font-size: var(--secondary-font-size);
+    color: var(--secondary-text-color);
+}

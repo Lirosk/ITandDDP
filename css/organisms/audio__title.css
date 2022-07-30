@@ -1,0 +1,38 @@
+.audio__title-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+
+.audio__title-wrap>* {
+    height: 100%;
+}
+
+.audio__title {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    justify-content: space-around;
+
+    min-width: 0;
+    margin-right: 5px;
+}
+
+.audio__title>* {
+    height: 100%;
+}
+
+.song__title {
+    font-size: var(--secondary-font-size);
+    color: var(--main-text-color);
+}
+
+.song__performer {
+    font-size: var(--secondary-font-size);
+    color: var(--secondary-text-color);
+}

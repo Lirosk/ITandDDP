@@ -1,0 +1,26 @@
+@import url("../style.css");
+
+@import url("../organisms/header.css");
+@import url("../organisms/footer.css");
+@import url("../organisms/music-search.css");
+@import url("../organisms/track-container.css");
+
+.multi-line-tracks {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 7px;
+
+    padding: 9px 16px;
+}
+
+.multi-line-tracks>* {
+    width: 100%;
+    height: 46px;
+}
+
+.tracks-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}

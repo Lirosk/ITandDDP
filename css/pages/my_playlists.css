@@ -1,0 +1,37 @@
+@import url("../style.css");
+
+@import url("../organisms/header.css");
+@import url("../organisms/footer.css");
+@import url("../organisms/music-search.css");
+@import url("../organisms/one-line-playlists.css");
+
+.multi-line-playlists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 22px;
+
+    row-gap: 14px;
+
+    align-items: stretch;
+
+    padding: 14px 19px;
+}
+
+.playlists-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.cover-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 6px;
+}
+
+.cover-container:hover .play-pause-button {
+    visibility: visible;
+}

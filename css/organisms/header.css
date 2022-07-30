@@ -1,4 +1,10 @@
-.header__content {
+header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+
+    z-index: 100;
+
     display: block;
     width: 100%;
     height: 28px;
@@ -20,8 +26,8 @@
 
     margin: auto;
 
-    min-width: 320px;
-    max-width: 690px;
+    min-width: var(--min-width);
+    max-width: var(--max-width);
 }
 
 .header__container>* {
@@ -45,7 +51,7 @@
 
 .header__ref {
     color: var(--secondary-text-color);
-    font-size: 12px;
+    font-size: var(--secondary-font-size);
 }
 
 .ref-text {
