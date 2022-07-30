@@ -26,18 +26,3 @@
 .selected-playlist-container>* {
     width: 100%;
 }
-
-.album__title {
-    font-size: var(--secondary-font-size);
-    color: var(--main-text-color);
-}
-
-.album__performer {
-    font-size: var(--secondary-font-size);
-    color: var(--secondary-text-color);
-}
-
-.album__release-date {
-    font-size: var(--secondary-font-size);
-    color: var(--secondary-text-color);
-}
