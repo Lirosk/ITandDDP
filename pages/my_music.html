@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/pages/my_music.css">
     <title>My music</title>
+
+    <script type="module" src="../js/footer.js" defer></script>
+    <script type="module" src="../js/track-container.js" defer></script>
+    <script type="module" src="../js/open-popup.js" defer></script>
 </head>
 
 <body>
@@ -43,6 +47,7 @@
                 </form>
                 <div class="multi-line-tracks">
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -51,32 +56,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -84,6 +104,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -92,32 +113,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -125,6 +161,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -133,32 +170,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -166,6 +218,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -174,32 +227,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -207,6 +275,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -215,32 +284,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -248,6 +332,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -256,32 +341,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -289,6 +389,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -297,32 +398,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -330,6 +446,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -338,32 +455,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -371,6 +503,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -379,32 +512,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>
@@ -412,6 +560,7 @@
                         </div>
                     </div>
                     <div class="track-container">
+                        <button class="track-container__button-wrap"></button>
                         <div class="track__cover-wrap">
                             <img class="track__cover" alt="playlist1" src="../img/album_cover.png" />
                             <div class="play-pause-button-wrap">
@@ -420,32 +569,47 @@
                         </div>
                         <div class="track__title-wrap">
                             <div class="audio__title">
-                                <span class="song__title">
-                                    Title
-                                </span>
-                                <a class="song__performer" href="search.html">
-                                    Performer
-                                </a>
+                                <div class="audio__title__text-wrap">
+                                    <span class="song__title">
+                                        Title
+                                    </span>
+                                </div>
+                                <div class="audio__title__text-wrap">
+                                    <a class="song__performer" href="search.html">
+                                        Performer
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="track__buttons-container">
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="0" x2="13" y1="1" y2="1" />
-                                        <line x1="0" x2="6" y1="7" y2="7" />
-                                        <line x1="0" x2="6" y1="13" y2="13" />
-                                        <polygon points="9 7, 9 12, 13 9.5" />
-                                    </svg>
-                                </button>
+                                <button class="track__button play-next-button">
+                                        <svg class="icon play-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polygon points="9 7, 9 12, 13 9.5" />
+                                        </svg>
+                                        <svg class="icon remove-next">
+                                            <line x1="0" x2="13" y1="1" y2="1" />
+                                            <line x1="0" x2="6" y1="7" y2="7" />
+                                            <line x1="0" x2="6" y1="13" y2="13" />
+                                            <polyline points="8 8, 13 13" />
+                                            <polyline points="8 13, 13 8" />
+                                        </svg>
+                                    </button>
                             </div>
                             <div class="track__button-wrap">
-                                <button class="track__button">
-                                    <svg class="icon">
-                                        <line x1="1" x2="14" y1="1" y2="14" />
-                                        <line x1="1" x2="14" y1="14" y2="1" />
-                                    </svg>
-                                </button>
+                                <button class="track__button add-button added">
+                                        <svg class="icon add">
+                                            <line x1="0" x2="14" y1="7" y2="7" />
+                                            <line x1="7" x2="7" y1="0" y2="14" />
+                                        </svg>
+                                        <svg class="icon remove">
+                                            <line x1="1" x2="13" y1="1" y2="13" />
+                                            <line x1="1" x2="13" y1="13" y2="1" />
+                                        </svg>
+                                    </button>
                             </div>
                         </div>
                         <div>

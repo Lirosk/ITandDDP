@@ -6,6 +6,9 @@
 @import url("../organisms/one-line-playlists.css");
 @import url("../organisms/track-container.css");
 
+@import url("../organisms/popup.css");
+@import url("../pages/selected_playlist.css");
+
 .found-tracks {
     display: flex;
     flex-direction: column;

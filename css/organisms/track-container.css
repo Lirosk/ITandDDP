@@ -1,13 +1,3 @@
-.track-container:active .play-pause-button {
-    margin: 0;
-
-    height: 100%;
-    width: 100%;
-
-    border-style: double;
-    border-width: 0 0 0 var(--play-pause-button__width);
-}
-
 .track-container:hover .play-pause-button {
     visibility: visible;
 }
@@ -30,9 +20,20 @@
     background-color: var(--hover-bg-color);
 }
 
-.track-container:active {
+.track-container.activated {
     background-color: var(--active-bg-color);
 }
+
+.track-container__button-wrap {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
 
 .track-container>* {
     margin: auto 5px;
@@ -69,6 +70,8 @@
     position: absolute;
     left: 0;
     visibility: hidden;
+
+    z-index: 1;
 }
 
 .track__cover-wrap {
@@ -110,6 +113,38 @@
 .track__button>.icon {
     height: 15px;
     width: 15px;
+}
+
+.play-next-button>.play-next {
+    display: block;
+}
+
+.play-next-button>.remove-next {
+    display: none;
+}
+
+.play-next-button.activated>.play-next {
+    display: none;
+}
+
+.play-next-button.activated>.remove-next {
+    display: block;
+}
+
+.add-button>.add {
+    display: block;
+}
+
+.add-button>.remove {
+    display: none;
+}
+
+.add-button.added>.add {
+    display: none;
+}
+
+.add-button.added>.remove {
+    display: block;
 }
 
 .track__button>.icon>* {

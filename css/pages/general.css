@@ -4,3 +4,8 @@
 @import url("../organisms/footer.css");
 @import url("../organisms/music-search.css");
 @import url("../organisms/one-line-playlists.css");
+@import url("../organisms/track-container.css");
+
+@import url("../organisms/popup.css");
+
+@import url("../pages/selected_playlist.css");

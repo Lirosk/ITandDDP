@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/pages/selected_playlist.css">
     <title>Selected playlist</title>
+
+    <script type="module" src="../js/footer.js" defer></script>
+    <script type="module" src="../js/track-container.js" defer></script>
+    <script type="module" src="../js/selected_playlist.js" defer></script>
 </head>
 
 <body>
@@ -44,18 +48,23 @@
                             yyyy</span>
                     </div>
                     <div class="playlist__toolbar">
-                        <button class="playlist__add-icon">
-                            <svg class="icon">
+                        <button class="playlist__add-button">
+                            <svg class="icon add">
                                 <line x1="0" x2="11" y1="5.5" y2="5.5" />
                                 <line x1="5.5" x2="5.5" y1="0" y2="11" />
                             </svg>
-                            <span class="playlist__add-icon__text">Add</span>
+                            <svg class="icon added">
+                                <polyline points="0 8, 3.5 10, 10 3" />
+                            </svg>
+                            <span class="playlist__add-button__text add">Add</span>
+                            <span class="playlist__add-button__text added">Added</span>
                         </button>
                     </div>
                 </div>
             </div>
             <div class="playlist__tracks-container">
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">1</span>
                         <div class="play-pause-button-wrap">
@@ -67,20 +76,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>
@@ -90,6 +110,7 @@
                     </div>
                 </div>
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">2</span>
                         <div class="play-pause-button-wrap">
@@ -101,20 +122,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>
@@ -124,6 +156,7 @@
                     </div>
                 </div>
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">3</span>
                         <div class="play-pause-button-wrap">
@@ -135,20 +168,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>
@@ -158,6 +202,7 @@
                     </div>
                 </div>
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">4</span>
                         <div class="play-pause-button-wrap">
@@ -169,20 +214,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>
@@ -192,6 +248,7 @@
                     </div>
                 </div>
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">5</span>
                         <div class="play-pause-button-wrap">
@@ -203,20 +260,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>
@@ -226,6 +294,7 @@
                     </div>
                 </div>
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">6</span>
                         <div class="play-pause-button-wrap">
@@ -237,20 +306,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>
@@ -260,6 +340,7 @@
                     </div>
                 </div>
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">7</span>
                         <div class="play-pause-button-wrap">
@@ -271,20 +352,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>
@@ -294,6 +386,7 @@
                     </div>
                 </div>
                 <div class="track-container">
+                    <button class="track-container__button-wrap"></button>
                     <div class="track__number-wrap">
                         <span class="track__number">8</span>
                         <div class="play-pause-button-wrap">
@@ -305,20 +398,31 @@
                     </div>
                     <div class="track__buttons-container">
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
+                            <button class="track__button play-next-button">
+                                <svg class="icon play-next">
                                     <line x1="0" x2="13" y1="1" y2="1" />
                                     <line x1="0" x2="6" y1="7" y2="7" />
                                     <line x1="0" x2="6" y1="13" y2="13" />
                                     <polygon points="9 7, 9 12, 13 9.5" />
                                 </svg>
+                                <svg class="icon remove-next">
+                                    <line x1="0" x2="13" y1="1" y2="1" />
+                                    <line x1="0" x2="6" y1="7" y2="7" />
+                                    <line x1="0" x2="6" y1="13" y2="13" />
+                                    <polyline points="8 8, 13 13" />
+                                    <polyline points="8 13, 13 8" />
+                                </svg>
                             </button>
                         </div>
                         <div class="track__button-wrap">
-                            <button class="track__button">
-                                <svg class="icon">
-                                    <line x1="0" x2="15" y1="7.5" y2="7.5" />
-                                    <line x1="7.5" x2="7.5" y1="0" y2="15" />
+                            <button class="track__button add-button">
+                                <svg class="icon add">
+                                    <line x1="0" x2="14" y1="7" y2="7" />
+                                    <line x1="7" x2="7" y1="0" y2="14" />
+                                </svg>
+                                <svg class="icon remove">
+                                    <line x1="1" x2="13" y1="1" y2="13" />
+                                    <line x1="1" x2="13" y1="13" y2="1" />
                                 </svg>
                             </button>
                         </div>

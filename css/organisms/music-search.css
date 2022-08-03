@@ -18,6 +18,8 @@
 }
 
 .music-search__button>.icon {
+    margin: auto;
+
     width: 28px;
     height: 28px;
 

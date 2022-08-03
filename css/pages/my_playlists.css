@@ -5,6 +5,10 @@
 @import url("../organisms/music-search.css");
 @import url("../organisms/one-line-playlists.css");
 
+@import url("../organisms/popup.css");
+@import url("../pages/selected_playlist.css");
+@import url("../organisms/track-container.css");
+
 .multi-line-playlists {
     display: flex;
     flex-direction: row;
@@ -44,6 +48,10 @@
 .album__performer {
     font-size: var(--secondary-font-size);
     color: var(--secondary-text-color);
+}
+
+.album__performer:hover {
+    text-decoration: underline;
 }
 
 .album__release-date {

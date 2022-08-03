@@ -166,6 +166,16 @@ a {
     position: relative;
 
     margin: 1px;
+
+    height: 110px;
+    width: 110px;
+}
+
+.button-icon {
+    display: block;
+
+    height: 110px;
+    width: 110px;
 }
 
 .button-icon>.icon {
@@ -173,8 +183,8 @@ a {
     position: relative;
     top: 0;
 
-    height: 110px;
-    width: 110px;
+    height: 100%;
+    width: 100%;
 
     border-radius: 5px;
 }
@@ -241,7 +251,7 @@ a {
     border-color: #0000 #0000 #0000 var(--play-pause-button__hover-color);
 }
 
-.play-pause-button:active {
+.play-pause-button.paused {
     margin: 0;
 
     height: 100%;
@@ -258,4 +268,14 @@ a {
 .cover-wrap {
     min-width: none;
     max-width: 42px;
+}
+
+.track-container.activated .play-pause-button {
+    margin: 0;
+
+    height: 100%;
+    width: 100%;
+
+    border-style: double;
+    border-width: 0 0 0 var(--play-pause-button__width);
 }

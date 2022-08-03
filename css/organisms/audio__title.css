@@ -3,8 +3,6 @@
     flex-direction: row;
     justify-content: space-between;
 
-    width: 100%;
-
     overflow: hidden;
     flex-wrap: nowrap;
 }
@@ -17,7 +15,6 @@
     display: flex;
     justify-content: start;
     flex-direction: column;
-    justify-content: space-around;
 
     min-width: 0;
     margin-right: 5px;
@@ -28,11 +25,23 @@
 }
 
 .song__title {
+    display: block;
     font-size: var(--secondary-font-size);
     color: var(--main-text-color);
 }
 
 .song__performer {
+    display: block;
     font-size: var(--secondary-font-size);
     color: var(--secondary-text-color);
+
+    z-index: 1;
+}
+
+.song__performer:hover {
+    text-decoration: underline;
+}
+
+.audio__title__text-wrap {
+    display: flex;
 }
