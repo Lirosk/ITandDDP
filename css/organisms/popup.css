@@ -8,11 +8,14 @@
   height: 100%;
   overflow: auto;
   background-color: #0008;
+  padding-bottom: 69px;
 }
 
 .popup .selected-playlist-container {
   margin-top: 10%;
 }
+
+
 
 .popup__back-wrap {
   position: absolute;

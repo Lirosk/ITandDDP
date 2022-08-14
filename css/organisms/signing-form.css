@@ -33,7 +33,7 @@
     color: var(--input-text-color);
 }
 
-.signing-form__submit {
+.signing-form__button {
     border: none;
     background-color: transparent;
     border-radius: 3px;
@@ -41,7 +41,7 @@
     padding: 3px;
 }
 
-.signing-form__submit:hover {
+.signing-form__button:hover {
     background-color: var(--hover-bg-color);
 }
 
@@ -56,5 +56,5 @@
 }
 
 .signing-form__container>* {
-    margin: auto 0;
+    margin: auto;
 }

@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/pages/signing.css">
     <title>Sign in</title>
+
+    <script type="module" src="../js/login.js" defer></script>    
+    <script type="module" src="../js/onload.js" defer></script>
 </head>
 
 <body>
@@ -26,21 +29,7 @@
     <main>
         <form class="signing-form">
             <div class="signing-form__container">
-                <div>
-                    <label class="signing-form__label" for="input-username">
-                        Username
-                    </label>
-                    <input class="signing-form__input" type="text" id="input-username" required>
-                </div>
-
-                <div>
-                    <label class="signing-form__label" for="input-password">
-                        Password
-                    </label>
-                    <input class="signing-form__input" type="password" id="input-password" required>
-                </div>
-
-                <input class="signing-form__submit ref-text" type="Submit" value="Sign in">
+                <button class="signing-form__button ref-text" type="button">Sign in</button>
             </div>
         </form>
     </main>
