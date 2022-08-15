@@ -1,11 +1,9 @@
-import { changeClass } from "./utils.js";
+import { changeClass } from "../utils.js";
 
 const roots = document.querySelectorAll('.track-container');
 
 let lastTrack = null;
 setButtonListeners(roots);
-
-
 
 
 /**

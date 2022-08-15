@@ -1,4 +1,4 @@
-import { handleAuthRedirect,  } from "./api.js";
+import { handleAuthRedirect,  } from "../api.js";
 
 onPageLoad();
 

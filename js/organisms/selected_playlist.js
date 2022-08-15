@@ -1,4 +1,4 @@
-import { changeClass } from "./utils.js";
+import { changeClass } from "../utils.js";
 
 const root = document.querySelector('.playlist__add-button');
 

@@ -1,4 +1,4 @@
-import { changeClass } from "./utils.js";
+import { changeClass } from "../utils.js";
 
 const roots = document.querySelectorAll('.album__cover');
 
