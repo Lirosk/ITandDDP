@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/pages/selected_playlist.css">
     <title>Selected playlist</title>
+    <link rel="icon" type="image/x-icon" href="../img/album_cover.png">
 
     <script type="module" src="../js/footer.js" defer></script>
     <script type="module" src="../js/track-container.js" defer></script>
@@ -440,7 +441,7 @@
 
     <footer>
         <div class="footer__content">
-            <div class="player-container">
+            <div class="player-container" data-track_id="">
                 <button class="player__icon">
                     <svg class="icon">
                         <circle cx="50%" cy="50%" r="13px" />
@@ -466,7 +467,7 @@
                     </svg>
                 </button>
                 <div class="cover-wrap">
-                    <img src="../img/album_cover.png" alt="playlist1" class="player__cover">
+                    <img src="../img/album_cover.png" class="player__cover">
                 </div>
                 <div class="player__title-container">
                     <div class="audio__title-wrap">
@@ -478,7 +479,7 @@
                                 Listened Performer
                             </span>
                         </div>
-                        <span class="audio__progress-time">mm:ss</span>
+                        <span class="audio__progress-time" data-ms="">mm:ss</span>
                     </div>
                     <div class="audio__slider">
                         <input class="slider" type="range" value="42" min="0" max="100" />

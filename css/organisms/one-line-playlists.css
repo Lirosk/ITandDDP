@@ -35,8 +35,13 @@
     justify-content: start;
     overflow: hidden;
 
-    height: 112px;
+    height: 163px;
 
     flex-wrap: wrap;
     gap: 22px;
+
+}
+
+.one-line-playlists__container.expanded {
+    height: fit-content;
 }

@@ -1,4 +1,5 @@
-import { handleAuthRedirect,  } from "../api.js";
+import { handleAuthRedirect } from "../api.js";
+import "../organisms/login.js";
 
 onPageLoad();
 
@@ -8,6 +9,3 @@ function onPageLoad() {
         handleAuthRedirect(query);
     }
 }
-
-
-

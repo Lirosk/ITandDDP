@@ -251,7 +251,7 @@ a {
     border-color: #0000 #0000 #0000 var(--play-pause-button__hover-color);
 }
 
-.play-pause-button.paused {
+.play-pause-button.activated {
     margin: 0;
 
     height: 100%;
@@ -270,12 +270,34 @@ a {
     max-width: 42px;
 }
 
-.track-container.activated .play-pause-button {
-    margin: 0;
+.cover-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1px;
 
-    height: 100%;
-    width: 100%;
+    width: 110px;
+}
 
-    border-style: double;
-    border-width: 0 0 0 var(--play-pause-button__width);
+.cover-container:hover .play-pause-button {
+    visibility: visible;
+}
+
+.album__title {
+    font-size: var(--secondary-font-size);
+    color: var(--main-text-color);
+}
+
+.album__performer {
+    font-size: var(--secondary-font-size);
+    color: var(--secondary-text-color);
+}
+
+.album__performer:hover {
+    text-decoration: underline;
+}
+
+.album__release-date {
+    font-size: var(--secondary-font-size);
+    color: var(--secondary-text-color);
 }

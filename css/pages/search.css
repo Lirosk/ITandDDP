@@ -28,7 +28,7 @@
 
     row-gap: 4px;
 
-    max-height: 116px;
+    /* max-height: 116px; */
 }
 
 .found-tracks-container>* {

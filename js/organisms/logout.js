@@ -1,8 +1,8 @@
 const target = '.logout-btn';
 
-setButtonListeners();
+setHidePopupButtonListeners();
 
-function setButtonListeners() {
+function setHidePopupButtonListeners() {
     document.querySelector(target).addEventListener('click', (e)=>{
         localStorage.clear();
     });

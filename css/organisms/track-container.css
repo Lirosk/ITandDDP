@@ -119,6 +119,10 @@
     display: block;
 }
 
+.track-container.activated .play-next-button {
+    visibility: hidden !important;
+}
+
 .play-next-button>.remove-next {
     display: none;
 }
@@ -160,6 +164,10 @@
     color: var(--main-text-color);
     width: 100%;
     font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: min-content;
+    height: 16px;
 }
 
 .track__title-wrap {

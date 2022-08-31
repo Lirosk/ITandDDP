@@ -28,33 +28,3 @@
     flex-direction: column;
     justify-content: start;
 }
-
-.cover-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 6px;
-}
-
-.cover-container:hover .play-pause-button {
-    visibility: visible;
-}
-
-.album__title {
-    font-size: var(--secondary-font-size);
-    color: var(--main-text-color);
-}
-
-.album__performer {
-    font-size: var(--secondary-font-size);
-    color: var(--secondary-text-color);
-}
-
-.album__performer:hover {
-    text-decoration: underline;
-}
-
-.album__release-date {
-    font-size: var(--secondary-font-size);
-    color: var(--secondary-text-color);
-}
