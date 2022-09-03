@@ -41,10 +41,12 @@ function setButtonListeners() {
 
             let progress_ms = Math.floor((progress - min) / (max - min) * duration_ms);
 
+            if (progress_ms === duration_ms) {
+                progress_ms = 0;
+            }
+
             playTrack(id, progress_ms);
         }
-
-        changeClass(play, 'activated');
     });
 
     prev.addEventListener('click', (e) => {
@@ -73,22 +75,22 @@ function setButtonListeners() {
 function setRangeListeners() {
     const rangeInputs = [progressInput, volumeInput];
 
-    function handleInputChange(e) {
-        let target = e.target;
-        if (target.type !== 'range') {
-            return;
-        }
+    // function handleInputChange(e) {
+    //     let target = e.target;
+    //     if (target.type !== 'range') {
+    //         return;
+    //     }
 
-        const min = Number(target.min);
-        const max = Number(target.max);
-        const val = Number(target.value);
+    //     const min = Number(target.min);
+    //     const max = Number(target.max);
+    //     const val = Number(target.value);
 
-        target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%';
-    }
+    //     target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%';
+    // }
 
-    rangeInputs.forEach(input => {
-        input.addEventListener('input', handleInputChange);
-    });
+    // rangeInputs.forEach(input => {
+    //     input.addEventListener('input', handleInputChange);
+    // });
 
     const calcVal = (e)=>{
         let target = e.target;
@@ -137,7 +139,7 @@ function setProgressTracker() {
 
     playerStateTracker.addStateChangeHandler(
         (lastState, currentState) => {
-            return lastState.is_playing != currentState.is_playing;
+            return true;
         },
         (lastState, currentState) => {
             if (currentState.is_playing) {

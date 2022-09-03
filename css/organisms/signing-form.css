@@ -18,9 +18,24 @@
     display: block;
 }
 
+.signing-form__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 20px;
+}
+
 .signing-form__label {
-    font-size: 12px;
+    display: inline;
+    font-size: 28px;
     color: var(--main-text-color);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.signing-form__img {
+    display: inline;
+    height: 42px;
 }
 
 .signing-form__input {

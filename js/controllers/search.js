@@ -5,7 +5,7 @@ import "../organisms/selected_playlist.js";
 import { changeClass, TrackFromEntry, AlbumFromEntry } from "../utils.js";
 import { getNextItems, countryKey, checkForSavedTracks } from "../api.js";
 
-import { fillHtmlTemplate as fillTrack, setListenersForTrack, removeActivatedClasses as removeTracksActivatedClasses, addActivatedClasses as addTrackActivatedClasses } from "../organisms/track-container.js";
+import { fillHtmlTemplate as fillTrack, setListenersForTrack } from "../organisms/track-container.js";
 import { fillHtmlTemplate as fillCover, setListenersForCover } from "../organisms/album__cover.js";
 
 import { Track } from "../models/track.mjs";
@@ -53,7 +53,6 @@ class SearchController {
 
         getNextItems(
             `https://api.spotify.com/v1/search?q=${q}&type=track&include_external=audio&offset=0&limit=50${market ? `&market=${market}` : ''}`,
-            'tracks',
             TrackFromEntry,
             newTracks => {
                 this.tracks = [...this.tracks, ...newTracks];
@@ -61,12 +60,13 @@ class SearchController {
 
                 console.log('total tracks lenght: ' + this.tracks.length);
             },
+            'tracks',
+            undefined,
             this.maxTracksInPage,
         );
 
         await getNextItems(
             `https://api.spotify.com/v1/search?q=${q}&type=album&include_external=audio&offset=0&limit=50${market ? `&market=${market}` : ''}`,
-            'albums',
             AlbumFromEntry,
             newAlbums => {
                 this.albums = [...this.albums, ...newAlbums];
@@ -74,11 +74,13 @@ class SearchController {
 
                 console.log('total albums lenght: ' + this.albums.length);
             },
+            'albums',
+            undefined,
             this.maxAlbumsInPage,
             album => album.album_type === 'album',
         );
 
-
+        // bad sport
         setTimeout(function () {
             setPopupListeners();
         }, 2000);
@@ -86,7 +88,7 @@ class SearchController {
 
 
     setButtonListeners() {
-        const container = document.querySelectorAll('.one-line-playlists__container');
+        const container = document.querySelector('.one-line-playlists__container');
         const btnValues = ['Expand', 'Collapse'];
         let btnState = 0;
 

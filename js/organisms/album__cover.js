@@ -4,14 +4,14 @@ import { getPlaybackStatus, pause, playAlbum } from "../api.js";
 import { playerStateTracker } from "../controllers/player_state_tracker.js";
 
 
-let lastAlbum = null;
+let lastAlbumId = null;
 
 
 /**
  * 
  * @param {number} id 
  */
-export function setListenersForCover(id, is_playlist=false) {
+export function setListenersForCover(id, is_playlist = false) {
     const element = document.querySelector(`.album__cover[data-id="${id}"]`);
 
     if (!element) {
@@ -23,24 +23,16 @@ export function setListenersForCover(id, is_playlist=false) {
     const playButton = element.querySelector(".play-pause-button");
 
     playButton.addEventListener('click', (e) => {
-        if (lastAlbum && lastAlbum !== element) {
-            lastAlbum.querySelector(".play-pause-button").classList.remove("activated");
-        }
-
         if (playButton.classList.contains('activated')) {
             pause(id);
         }
         else {
-
-
-            if (lastAlbum !== element) {
+            if (lastAlbumId !== id) {
                 playAlbum(id, 0, 0, is_playlist);
             }
             else {
                 getPlaybackStatus()
                     .then(res => {
-                        console.log(res);
-
                         const progress_ms = res.progress_ms;
                         const position = res.item.track_number - 1;
 
@@ -49,9 +41,8 @@ export function setListenersForCover(id, is_playlist=false) {
             }
         }
 
-
-        changeClass(playButton, "activated");
-        lastAlbum = element;
+        // changeClass(playButton, "activated");
+        lastAlbumId = id;
     });
 }
 
@@ -86,30 +77,36 @@ export function fillHtmlTemplate(album) {
     `;
 }
 
-function disactivateLastAlbum() {
-    if (lastAlbum) {
-        lastAlbum.querySelector(".play-pause-button").classList.remove("activated");
-    }
+function removeActivatedClassesFromElement(element) {
+    element.classList.remove("activated");
+}
+
+function addActivatedClassesToElement(element) {
+    element.classList.add("activated");
 }
 
 function activateAlbum(id) {
     const album = document.querySelector(`.album__cover[data-id="${id}"]`);
     if (album) {
         album.querySelector('.play-pause-button').classList.add("activated");
-        lastAlbum = album;
+        lastAlbumId = album.id;
     }
 }
 
 playerStateTracker.addStateChangeHandler(
     (lastState, currentState) => {
-        return lastState.is_album_context != currentState.is_album_context;
+        return true;
     },
     (lastState, currentState) => {
-        if (currentState.is_album_context && currentState.is_playing) {
+        const currentAlbumId = currentState.album_id;
+
+        const activated = document.querySelectorAll(`.album__cover${currentState.is_playing ? `:not([data-id="${currentAlbumId}"])` : ""} .play-pause-button.activated`);
+        activated.forEach(element => {
+            removeActivatedClassesFromElement(element);
+        });
+
+        if (currentState.is_playing && currentState.is_album_context) {
             activateAlbum(currentState.album_id);
-        }
-        else {
-            disactivateLastAlbum();
         }
     },
 );

@@ -67,7 +67,7 @@ class PlayerbackState {
         this.artist = state.item.artists.map(item => item.name).join(', ');
         this.track_image_url = state.item.album.images[2].url;
         this.is_album_context = state.context ? ['playlist', 'album'].includes(state.context.type)  : false;
-        this.album_id = state.item.album.id;
+        this.album_id = (state.context && state.context.type === 'playlist') ? (/\w+:\w+:([\w\d]+)/.exec(state.context.uri))[1] : state.item.album.id;
     }
 
     /**

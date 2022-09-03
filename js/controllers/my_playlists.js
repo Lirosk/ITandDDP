@@ -6,21 +6,26 @@ import "../organisms/logout.js";
 import { Album } from "../models/album.mjs";
 import { setListenersForCover, fillHtmlTemplate } from "../organisms/album__cover.js";
 
-import { checkForUserLoggedIn, getUsersAlbums } from "../api.js";
+import { checkForUserLoggedIn, getNextItems, getUsersAlbums } from "../api.js";
 
 import { setPopupListeners } from "./selected_playlist.js";
+import { AlbumFromEntry } from "../utils.js";
 
 checkForUserLoggedIn();
+
+const target = document.querySelector('.multi-line-playlists');
+target.innerHTML = "";
 
 main();
 
 async function main() {
-    getUsersAlbums().then(
-        albums => {
-            placeIntoHtml(albums);
-        }).then(() => {
-            setPopupListeners();
-        });
+    getNextItems(
+        'https://api.spotify.com/v1/me/albums?offset=0&limit=50',
+        AlbumFromEntry,
+        albums => { placeIntoHtml(albums); },
+        undefined,
+        'album'
+    );
 }
 
 /**
@@ -28,9 +33,6 @@ async function main() {
  * @param {Album[]} albums 
  */
 function placeIntoHtml(albums) {
-    const target = document.querySelector('.multi-line-playlists');
-    target.innerHTML = "";
-
     albums.forEach(album => {
         target.innerHTML += fillHtmlTemplate(album);
 

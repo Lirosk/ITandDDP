@@ -71,8 +71,8 @@ function handleTrackSelect(trackContainer) {
         }
     }
 
-    changeClass(trackContainer, "activated");
-    changeClass(trackContainer.querySelector(".play-pause-button"), "activated");
+    // changeClass(trackContainer, "activated");
+    // changeClass(trackContainer.querySelector(".play-pause-button"), "activated");
     lastTrackId = id;
 }
 
@@ -216,58 +216,58 @@ export function fillAlbumTrackHtmlTemplate(track, number, added = false) {
     `;
 }
 
-export function removeActivatedClasses(id) {
+export function removeActivatedClassesWithId(id) {
     const elements = document.querySelectorAll(`.track-container[data-id=\"${id}\"]`);
     if (!elements) {
         return;
     }
 
-
     elements.forEach(element => {
-        const playNextButton = element.querySelector('.track__button.play-next-button');
-
+        const playNextButton = element.querySelector('.play-pause-button');
         element.classList.remove('activated');
         playNextButton.classList.remove('activated');
     });
 }
 
-export function addActivatedClasses(id) {
+export function removeActivatedClassesFromElement(element) {
+    const playNextButton = element.querySelector('.play-pause-button');
+    element.classList.remove('activated');
+    playNextButton.classList.remove('activated');
+}
+
+export function addActivatedClassesWithId(id) {
     const elements = document.querySelectorAll(`.track-container[data-id=\"${id}\"]`);
     if (!elements) {
         return;
     }
 
     elements.forEach(element => {
-
         const playPause = element.querySelector(".play-pause-button");
-
         element.classList.add('activated');
         playPause.classList.add('activated');
     });
 }
 
+export function addActivatedClassesToElement(element) {
+    const playPause = element.querySelector(".play-pause-button");
+    element.classList.add('activated');
+    playPause.classList.add('activated');
+}
 
 playerStateTracker.addStateChangeHandler(
     (lastState, currentState) => {
-        return lastState.track_id !== currentState.track_id;
+        return true;
     },
     (lastState, currentState) => {
-        removeActivatedClasses(lastState.track_id);
-        addActivatedClasses(currentState.track_id);
-    },
-);
+        const currentTrackId = currentState.track_id;
 
-playerStateTracker.addStateChangeHandler(
-    (lastState, currentState) => {
-        return lastState.track_id === currentState.track_id ||
-            lastState.is_playing !== currentState.is_playing;
-    },
-    (lastState, currentState) => {
+        const activated = document.querySelectorAll(`.track-container.activated${currentState.is_playing ? `:not([data-id="${currentTrackId}"])` : ""}`);
+        activated.forEach(element => {
+            removeActivatedClassesFromElement(element);
+        });
+
         if (currentState.is_playing) {
-            addActivatedClasses(currentState.track_id);
-        }
-        else {
-            removeActivatedClasses(currentState.track_id);
+            addActivatedClassesWithId(currentState.track_id);
         }
     },
 );

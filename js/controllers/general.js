@@ -14,8 +14,10 @@ import { changeClass } from "../utils.js";
 const root = document.querySelector('.general-container');
 document.querySelectorAll('.one-line-playlists').forEach(element => element.remove());
 
+const categotiesCount = 5;
+
 (async () => {
-    await getRecomendations(10, category => {
+    await getRecomendations(categotiesCount, category => {
         root.innerHTML += fillCategoryHtmlTemplate(category);
 
         setTimeout(

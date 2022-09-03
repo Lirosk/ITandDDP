@@ -409,32 +409,32 @@ export function getUsersAlbums() {
         });
 }
 
-export async function getNextItems(nextUrl, attr, extractItemFromEntry, handleExtractedItems, maxItems, predicate = null) {
-    getNextItemsRecursive(nextUrl, attr, extractItemFromEntry, handleExtractedItems, maxItems, predicate, 0);
+export async function getNextItems(nextUrl, extractItemFromEntry, handleExtractedItems, attr=undefined, itemAttr=undefined, maxItems = 0, predicate = null) {
+    getNextItemsRecursive(nextUrl, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, 0);
 }
 
-async function getNextItemsRecursive(nextUrl, attr, extractItemFromEntry, handleExtractedItems, maxItems, predicate, hasItems) {
+async function getNextItemsRecursive(nextUrl, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, hasItems) {
     GET(
         nextUrl,
         data => {
-            const container = data[attr];
+            const container = attr ? data[attr] : data; 
 
             let res = [];
             try {
                 container.items.forEach(entry => {
                     if (!(predicate && !predicate(entry))) {
-                        if (hasItems + 1 > maxItems) {
+                        if (maxItems && hasItems + 1 > maxItems) {
                             throw Error('max');
                         }
 
-                        res.push(extractItemFromEntry(entry));
+                        res.push(extractItemFromEntry(itemAttr ? entry[itemAttr] : entry));
 
                         hasItems++;
                     }
                 });
 
                 if (container.next) {
-                    getNextItemsRecursive(container.next, attr, extractItemFromEntry, handleExtractedItems, maxItems, predicate, hasItems);
+                    getNextItemsRecursive(container.next, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, hasItems);
                 }
             }
             catch (error) {
@@ -463,7 +463,7 @@ export async function getAvailableDevice() {
     );
 }
 
-export async function playAlbum(id, position = 0, progress_ms = 0, is_playlist=false) {
+export async function playAlbum(id, position = 0, progress_ms = 0, is_playlist = false) {
     return PUT(
         `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
         {
@@ -503,7 +503,7 @@ export async function checkForSavedTracks(ids) {
 }
 
 async function checkForSavedTracksRecursive(ids) {
-    
+
 }
 
 export async function saveTrack(id) {

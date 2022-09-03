@@ -85,7 +85,7 @@ export function PlaylistFromEntry(obj, withTracks = false) {
     const name = obj.name;
     const releaseDate = new Date().getFullYear();
 
-    let artists = [obj.owner.display_name];
+    let artists = [''];
 
     let images = [];
     obj.images.forEach(item => {
