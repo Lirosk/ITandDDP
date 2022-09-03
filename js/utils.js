@@ -72,7 +72,6 @@ export function AlbumFromEntry(obj, withTracks = false) {
     if (withTracks) {
         tracks = [];
         obj.tracks.items.forEach(item => {
-            console.log(item);
             tracks.push(TrackFromEntry(item));
         });
     }

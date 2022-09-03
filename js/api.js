@@ -409,7 +409,7 @@ export function getUsersAlbums() {
         });
 }
 
-export async function getNextItems(nextUrl, extractItemFromEntry, handleExtractedItems, attr=undefined, itemAttr=undefined, maxItems = 0, predicate = null) {
+export async function getNextItems(nextUrl, extractItemFromEntry, handleExtractedItems, attr = undefined, itemAttr = undefined, maxItems = 0, predicate = null) {
     getNextItemsRecursive(nextUrl, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, 0);
 }
 
@@ -417,7 +417,7 @@ async function getNextItemsRecursive(nextUrl, extractItemFromEntry, handleExtrac
     GET(
         nextUrl,
         data => {
-            const container = attr ? data[attr] : data; 
+            const container = attr ? data[attr] : data;
 
             let res = [];
             try {
@@ -458,7 +458,10 @@ export async function getAvailableDevice() {
         data => {
             if (data.devices[0]) {
                 localStorage.setItem(availableDeviceKey, data.devices[0].id);
+                return true;
             }
+
+            return false;
         }
     );
 }
@@ -554,7 +557,14 @@ async function request(url, method, body = null) {
             return response.json().then(
                 data => {
                     if (response.status === 404 && data.error.message === 'Device not found') {
-                        return getAvailableDevice().then(() => {
+
+
+                        return getAvailableDevice().then((res) => {
+                            if (!res) {
+                                alert('No available devices');
+                                throw ('No available devices');
+                            }
+
                             return request(url, method, body);
                         });
                     }
@@ -714,5 +724,19 @@ export function getPlaylist(id) {
         data => {
             return PlaylistFromEntry(data, true);
         }
+    );
+}
+
+export function addAlbumToUserLibrary(albumId) {
+    return request(
+        `https://api.spotify.com/v1/me/albums?ids=${albumId}`,
+        'PUT',
+    );
+}
+
+export function removeAlbumFromUserLibrary(albumId) {
+    return request(
+        `https://api.spotify.com/v1/me/albums?ids=${albumId}`,
+        'DELETE',
     );
 }

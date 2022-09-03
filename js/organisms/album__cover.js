@@ -22,7 +22,7 @@ export function setListenersForCover(id, is_playlist = false) {
 
     const playButton = element.querySelector(".play-pause-button");
 
-    playButton.addEventListener('click', (e) => {
+    playButton.onclick = (e) => {
         if (playButton.classList.contains('activated')) {
             pause(id);
         }
@@ -33,8 +33,8 @@ export function setListenersForCover(id, is_playlist = false) {
             else {
                 getPlaybackStatus()
                     .then(res => {
-                        const progress_ms = res.progress_ms;
-                        const position = res.item.track_number - 1;
+                        const progress_ms = res ? res.progress_ms : 0;
+                        const position = res ? res.item.track_number - 1 : 0;
 
                         playAlbum(id, position, progress_ms, is_playlist);
                     });
@@ -43,7 +43,7 @@ export function setListenersForCover(id, is_playlist = false) {
 
         // changeClass(playButton, "activated");
         lastAlbumId = id;
-    });
+    };
 }
 
 

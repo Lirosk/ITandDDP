@@ -3,10 +3,10 @@ import "../organisms/track-container.js";
 import { changeClass } from "../utils.js";
 import { Album } from "../models/album.mjs";
 import { fillAlbumTrackHtmlTemplate, fillHtmlTemplate as fillTrack } from "../organisms/track-container.js";
-import { checkForSavedAlbum, checkForSavedTracks } from "../api.js";
+import { addAlbumToUserLibrary, checkForSavedAlbum, checkForSavedTracks, removeAlbumFromUserLibrary } from "../api.js";
 
 
-export function setButtonListeners(root) {
+export function setButtonListeners(albumId) {
     const button = document.querySelector('.playlist__add-button');
     if (!button) {
         return;
@@ -14,13 +14,13 @@ export function setButtonListeners(root) {
     
     button.addEventListener('click', (e) => {
         if (button.classList.contains('added')) {
-            // TODO
+            removeAlbumFromUserLibrary(albumId);
         }
         else {
-            // TODO
+            addAlbumToUserLibrary(albumId);
         }
 
-        changeClass(root, 'added');
+        changeClass(button, 'added');
     });
 }
 

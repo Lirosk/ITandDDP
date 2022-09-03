@@ -19,12 +19,17 @@ target.innerHTML = "";
 main();
 
 async function main() {
-    getNextItems(
+    await getNextItems(
         'https://api.spotify.com/v1/me/albums?offset=0&limit=50',
         AlbumFromEntry,
         albums => { placeIntoHtml(albums); },
         undefined,
         'album'
+    );
+
+    setInterval(
+        setPopupListeners,
+        1000
     );
 }
 

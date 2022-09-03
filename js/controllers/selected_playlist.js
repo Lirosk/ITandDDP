@@ -21,7 +21,7 @@ export function showPopupPlaylist(id, is_playlists) {
         fillHtmlTemplate(album).then(res => {
             popup.innerHTML += res;
 
-            setSelectedPlaylistButtonListeners();
+            setSelectedPlaylistButtonListeners(id);
             setHidePopupButtonListeners();
         }).then(() => {
             album.tracks.forEach(track => {
