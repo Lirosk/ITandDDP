@@ -39,7 +39,7 @@ export function loginUser() {
 
     localStorage.setItem(clientIdKey, clientId);
 
-    const redirectUri = window.location.href;
+    const redirectUri = window.location.origin + window.location.pathname;
 
     const state = generateRandomString(16);
     localStorage.setItem(stateKey, state);
