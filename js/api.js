@@ -19,8 +19,8 @@ const TokenUrl = 'https://accounts.spotify.com/api/token';
 const UserUrl = 'https://api.spotify.com/v1/me';
 const recomendationsUri = 'https://api.spotify.com/v1/recommendations';
 
-const redirectTo = 'signin.html';
-const redirectAfterLogin = 'general.html';
+const redirectTo = 'signin';
+const redirectAfterLogin = 'general';
 
 // snatched
 function generateRandomString(length) {
@@ -39,7 +39,7 @@ export function loginUser() {
 
     localStorage.setItem(clientIdKey, clientId);
 
-    const redirectUri = window.location.origin + '/pages/' + redirectTo;
+    const redirectUri = window.location.href;
 
     const state = generateRandomString(16);
     localStorage.setItem(stateKey, state);
@@ -106,7 +106,7 @@ async function generateCodeChallenge(codeVerifier) {
 export function handleAuthRedirect(query) {
     const { code, state } = getCodeAndState(query);
 
-    const windowUri = window.location.origin + window.location.pathname;
+    let windowUri = (window.location.origin + window.location.pathname).replace(redirectTo, redirectAfterLogin);
     requestAccessToken(code, windowUri);
 }
 
@@ -210,7 +210,10 @@ function refreshAccessToken() {
 
         response.json().then(data => {
             handleAccessTokenResponseData(data);
+            return true;
         });
+
+        return false;
     }).catch(error => {
         console.log(error);
         throw error;
@@ -549,7 +552,11 @@ async function request(url, method, body = null) {
     ).then(response => {
         if (![2, 3].includes(Math.floor(response.status / 100))) {
             if (response.status === 401) {
-                return refreshAccessToken().then(() => {
+                return refreshAccessToken().then((res) => {
+                    if (!res) {
+                        alert('Re')
+                    }
+
                     return request(url, method, body);
                 });
             }
