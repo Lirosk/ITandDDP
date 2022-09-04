@@ -26,7 +26,7 @@ const categotiesCount = 5;
                     setListenersForCover(playlist.id, true);
                 });
             },
-            100
+            200
         );
     });
 
@@ -35,7 +35,7 @@ const categotiesCount = 5;
             setPopupListeners(true);
             setButtonListeners();
         },
-        2000
+        1000
     );
 })();
 

@@ -12,8 +12,6 @@ import { Track } from "../models/track.mjs";
 import { Album } from "../models/album.mjs";
 import { setPopupListeners } from "./selected_playlist.js";
 
-// import { setPopupListeners } from "./selected_playlist.js";
-
 class SearchController {
     constructor() {
         this.tracks = [];
@@ -44,7 +42,7 @@ class SearchController {
         q = decodeURIComponent(q);
 
         document.querySelector('.music-search__input').value = q;
-        // clearQueryFromUrl();
+        clearQueryFromUrl();
 
         this.clearContainers();
 
@@ -99,7 +97,6 @@ class SearchController {
             changeClass(container, 'expanded');
         };
     }
-
 
     /**
      * 
@@ -156,12 +153,16 @@ class SearchController {
                         }));
                 }
 
-                for (let i = 0; i < len; i++) {
-                    setListenersForTrack(tracks[i].id);
-                }
+                setTimeout(
+                    () => {
+                        for (let i = 0; i < len; i++) {
+                            setListenersForTrack(tracks[i].id);
+                        }
+                    },
+                    200
+                );
             });
     }
-
 
     async AddAlbumsIntoHtml(albums) {
         if (albums.length < 1) {

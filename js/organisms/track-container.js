@@ -8,11 +8,14 @@ let lastTrackId = null;
 export function setListenersForTrack(id) {
     const element = document.querySelector(`.track-container[data-id=\"${id}\"]`);
     if (!element) {
-        console.log(`Track with id ${id} is not found.`);
+        setTimeout(
+            () => {
+                setListenersForTrack(id);
+            },
+            200
+        );
         return;
     }
-
-    // console.log(`Setting listeners for track with id \"${element.attributes['data-id'].value}\".`);
 
     element.querySelector('.track-container__button-wrap')
         .addEventListener('click', (e) => {
@@ -71,8 +74,6 @@ function handleTrackSelect(trackContainer) {
         }
     }
 
-    // changeClass(trackContainer, "activated");
-    // changeClass(trackContainer.querySelector(".play-pause-button"), "activated");
     lastTrackId = id;
 }
 

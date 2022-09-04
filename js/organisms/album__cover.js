@@ -15,6 +15,12 @@ export function setListenersForCover(id, is_playlist = false) {
     const element = document.querySelector(`.album__cover[data-id="${id}"]`);
 
     if (!element) {
+        setTimeout(
+            () => {
+                setListenersForCover(id, is_playlist);
+            },
+            200
+        );
         return;
     }
 
