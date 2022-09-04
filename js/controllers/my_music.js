@@ -8,13 +8,12 @@ import { setListenersForTrack, fillHtmlTemplate } from "../organisms/track-conta
 
 import { checkForSavedTracks, getUsersAudios, checkForUserLoggedIn } from "../api.js";
 
-
 import { setPopupListeners } from "./selected_playlist.js";
+
 
 checkForUserLoggedIn();
 
 main();
-
 
 
 async function main() {

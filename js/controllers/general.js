@@ -7,9 +7,12 @@ import "../organisms/logout.js";
 import { setListenersForCover } from "../organisms/album__cover.js";
 import { setPopupListeners } from "../controllers/selected_playlist.js";
 
-import { getRecomendations } from "../api.js";
+import { checkForUserLoggedIn, getRecomendations } from "../api.js";
 import { fillHtmlTemplate } from "../organisms/album__cover.js";
 import { changeClass } from "../utils.js";
+
+
+checkForUserLoggedIn();
 
 const root = document.querySelector('.general-container');
 document.querySelectorAll('.one-line-playlists').forEach(element => element.remove());

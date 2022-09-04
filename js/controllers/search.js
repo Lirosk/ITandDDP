@@ -3,7 +3,7 @@ import "../organisms/footer.js";
 import "../organisms/selected_playlist.js";
 
 import { changeClass, TrackFromEntry, AlbumFromEntry } from "../utils.js";
-import { getNextItems, countryKey, checkForSavedTracks } from "../api.js";
+import { getNextItems, countryKey, checkForSavedTracks, checkForUserLoggedIn } from "../api.js";
 
 import { fillHtmlTemplate as fillTrack, setListenersForTrack } from "../organisms/track-container.js";
 import { fillHtmlTemplate as fillCover, setListenersForCover } from "../organisms/album__cover.js";
@@ -11,6 +11,10 @@ import { fillHtmlTemplate as fillCover, setListenersForCover } from "../organism
 import { Track } from "../models/track.mjs";
 import { Album } from "../models/album.mjs";
 import { setPopupListeners } from "./selected_playlist.js";
+
+
+checkForUserLoggedIn();
+
 
 class SearchController {
     constructor() {

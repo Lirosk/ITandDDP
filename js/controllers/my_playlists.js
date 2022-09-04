@@ -11,6 +11,7 @@ import { checkForUserLoggedIn, getNextItems, getUsersAlbums } from "../api.js";
 import { setPopupListeners } from "./selected_playlist.js";
 import { AlbumFromEntry } from "../utils.js";
 
+
 checkForUserLoggedIn();
 
 const target = document.querySelector('.multi-line-playlists');
