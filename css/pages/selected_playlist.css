@@ -1,8 +1,8 @@
 @import url("../style.css");
-@import url("../organisms/playlist.css");
-@import url("../organisms/track-container.css");
-@import url("../organisms/footer.css");
-@import url("../organisms/header.css");
+@import url("../components/playlist.css");
+@import url("../components/track-container.css");
+@import url("../components/footer.css");
+@import url("../components/header.css");
 
 .selected-playlist-container {    
     position: relative;
