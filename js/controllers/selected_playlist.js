@@ -1,10 +1,10 @@
-import { setButtonListeners as setSelectedPlaylistButtonListeners } from "../organisms/selected_playlist.js";
+import { setButtonListeners as setSelectedPlaylistButtonListeners } from "../components/selected_playlist.js";
 
-import { setButtonListeners as setPopupButtonListeners, setHidePopupButtonListeners } from "../organisms/popup.js";
+import { setButtonListeners as setPopupButtonListeners, setHidePopupButtonListeners } from "../components/popup.js";
 import { getAlbum, getPlaylist } from "../api.js";
 
-import { fillAlbumHtmlTemplate, fillPlaylistHtmlTemplate } from "../organisms/selected_playlist.js";
-import { setListenersForTrack } from "../organisms/track-container.js";
+import { fillAlbumHtmlTemplate, fillPlaylistHtmlTemplate } from "../components/selected_playlist.js";
+import { setListenersForTrack } from "../components/track-container.js";
 
 let popup;
 

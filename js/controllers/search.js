@@ -1,12 +1,12 @@
-import "../organisms/music-search.js";
-import "../organisms/footer.js";
-import "../organisms/selected_playlist.js";
+import "../components/music-search.js";
+import "../components/footer.js";
+import "../components/selected_playlist.js";
 
 import { changeClass, TrackFromEntry, AlbumFromEntry } from "../utils.js";
 import { getNextItems, countryKey, checkForSavedTracks, checkForUserLoggedIn } from "../api.js";
 
-import { fillHtmlTemplate as fillTrack, setListenersForTrack } from "../organisms/track-container.js";
-import { fillHtmlTemplate as fillCover, setListenersForCover } from "../organisms/album__cover.js";
+import { fillHtmlTemplate as fillTrack, setListenersForTrack } from "../components/track-container.js";
+import { fillHtmlTemplate as fillCover, setListenersForCover } from "../components/album__cover.js";
 
 import { Track } from "../models/track.mjs";
 import { Album } from "../models/album.mjs";

@@ -1,14 +1,14 @@
-import "../organisms/music-search.js";
-import "../organisms/footer.js";
-import "../organisms/track-container.js";
+import "../components/music-search.js";
+import "../components/footer.js";
+import "../components/track-container.js";
 
-import "../organisms/logout.js";
+import "../components/logout.js";
 
-import { setListenersForCover } from "../organisms/album__cover.js";
+import { setListenersForCover } from "../components/album__cover.js";
 import { setPopupListeners } from "../controllers/selected_playlist.js";
 
 import { checkForUserLoggedIn, getRecomendations } from "../api.js";
-import { fillHtmlTemplate } from "../organisms/album__cover.js";
+import { fillHtmlTemplate } from "../components/album__cover.js";
 import { changeClass } from "../utils.js";
 
 

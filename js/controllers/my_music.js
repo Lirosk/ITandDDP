@@ -1,10 +1,10 @@
-import "../organisms/music-search.js";
-import "../organisms/footer.js";
-import "../organisms/logout.js";
-import "../organisms/music-search.js";
+import "../components/music-search.js";
+import "../components/footer.js";
+import "../components/logout.js";
+import "../components/music-search.js";
 
 import { Track } from "../models/track.mjs";
-import { setListenersForTrack, fillHtmlTemplate } from "../organisms/track-container.js";
+import { setListenersForTrack, fillHtmlTemplate } from "../components/track-container.js";
 
 import { checkForSavedTracks, getUsersAudios, checkForUserLoggedIn } from "../api.js";
 

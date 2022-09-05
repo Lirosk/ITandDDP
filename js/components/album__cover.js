@@ -10,6 +10,7 @@ let lastAlbumId = null;
 /**
  * 
  * @param {number} id 
+ * @param {boolean} is_playlist
  */
 export function setListenersForCover(id, is_playlist = false) {
     const element = document.querySelector(`.album__cover[data-id="${id}"]`);

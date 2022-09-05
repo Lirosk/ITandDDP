@@ -1,10 +1,10 @@
-import "../organisms/music-search.js";
-import "../organisms/footer.js";
-import "../organisms/track-container.js";
-import "../organisms/logout.js";
+import "../components/music-search.js";
+import "../components/footer.js";
+import "../components/track-container.js";
+import "../components/logout.js";
 
 import { Album } from "../models/album.mjs";
-import { setListenersForCover, fillHtmlTemplate } from "../organisms/album__cover.js";
+import { setListenersForCover, fillHtmlTemplate } from "../components/album__cover.js";
 
 import { checkForUserLoggedIn, getNextItems, getUsersAlbums } from "../api.js";
 

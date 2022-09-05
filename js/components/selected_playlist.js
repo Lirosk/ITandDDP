@@ -1,8 +1,8 @@
-import "../organisms/track-container.js";
+import "../components/track-container.js";
 
 import { changeClass } from "../utils.js";
 import { Album } from "../models/album.mjs";
-import { fillAlbumTrackHtmlTemplate, fillHtmlTemplate as fillTrack } from "../organisms/track-container.js";
+import { fillAlbumTrackHtmlTemplate, fillHtmlTemplate as fillTrack } from "../components/track-container.js";
 import { addAlbumToUserLibrary, checkForSavedAlbum, checkForSavedTracks, removeAlbumFromUserLibrary } from "../api.js";
 
 

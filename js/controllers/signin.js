@@ -1,5 +1,5 @@
 import { handleAuthRedirect } from "../api.js";
-import "../organisms/login.js";
+import "../components/login.js";
 
 onPageLoad();
 

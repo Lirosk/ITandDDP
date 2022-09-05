@@ -1,9 +1,9 @@
 @import url("../style.css");
 
-@import url("../organisms/header.css");
-@import url("../organisms/footer.css");
-@import url("../organisms/music-search.css");
-@import url("../organisms/track-container.css");
+@import url("../components/header.css");
+@import url("../components/footer.css");
+@import url("../components/music-search.css");
+@import url("../components/track-container.css");
 
 .multi-line-tracks {
     display: flex;
