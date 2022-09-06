@@ -2,7 +2,7 @@ import "../components/music-search.js";
 import "../components/footer.js";
 import "../components/selected_playlist.js";
 
-import { changeClass, TrackFromEntry, AlbumFromEntry } from "../utils.js";
+import { changeClass, TrackFromEntry, AlbumFromEntry, clearQueryFromUrl } from "../utils.js";
 import { getNextItems, countryKey, checkForSavedTracks, checkForUserLoggedIn } from "../api.js";
 
 import { fillHtmlTemplate as fillTrack, setListenersForTrack } from "../components/track-container.js";
