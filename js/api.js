@@ -106,7 +106,7 @@ async function generateCodeChallenge(codeVerifier) {
 export function handleAuthRedirect(query) {
     const { code, state } = getCodeAndState(query);
 
-    let windowUri = (window.location.origin + window.location.pathname).replace(redirectTo, redirectAfterLogin);
+    let windowUri = (window.location.origin + window.location.pathname);
     requestAccessToken(code, windowUri);
 }
 
@@ -174,7 +174,7 @@ async function handleAccessTokenResponseData(data) {
     await getUserData();
     await getAvailableDevice();
 
-    window.location.href = window.location.origin + '/pages/' + redirectAfterLogin;
+    window.location.href = (window.location.origin + window.location.pathname).replace(redirectTo, redirectAfterLogin);
 }
 
 
