@@ -8,17 +8,17 @@ export function Header() {
         <header>
             <div className="header__container">
                 <div className="header__refs-container">
-                    <Link className="header__ref here-i-am" to="general.html">
+                    <Link className="header__ref here-i-am" to="general">
                         General
                     </Link>
-                    <Link className="header__ref" to="my_playlists.html">
+                    <Link className="header__ref" to="my_playlists">
                         My playlists
                     </Link>
-                    <Link className="header__ref" to="my_music.html">
+                    <Link className="header__ref" to="my_music">
                         My music
                     </Link>
                 </div>
-                <Link className="header__ref ref-text logout-btn" to="signin.html">
+                <Link className="header__ref ref-text logout-btn" to="signin">
                     Log out
                 </Link>
             </div>

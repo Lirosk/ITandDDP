@@ -75,14 +75,15 @@ export function loginUser() {
                 'client_id': clientId,
                 'show_dialog': false,
                 'redirect_uri': redirectUri,
-                'state': state,
-                'code_challenge_method': 'S256',
-                'code_challenge': codeChallenge,
+                // 'state': state,
+                // 'code_challenge_method': 'S256',
+                // 'code_challenge': codeChallenge,
                 'scope': scope,
             }
         );
 
         window.location.href = url;
+        // window.open(url);
     });
 }
 
