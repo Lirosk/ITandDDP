@@ -408,14 +408,26 @@ async function request(url, method, body = null) {
 }
 
 export async function playTrack(id, position_ms = 0) {
-    return request(
-        `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
-        'PUT',
-        {
-            uris: [`spotify:track:${id}`],
-            position_ms,
+    return GET(
+        `https://api.spotify.com/v1/me/player`,
+        data => {
+            if (!position_ms && data && data.item.id === id) {
+                position_ms = data.progress_ms;
+            }
+
+            return request(
+                `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
+                'PUT',
+                {
+                    uris: [`spotify:track:${id}`],
+                    position_ms,
+                }
+            );
         }
-    );
+    ).catch(error => {
+        console.log(error);
+        return null;
+    })
 }
 
 export async function pause() {
