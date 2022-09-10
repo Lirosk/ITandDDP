@@ -1,18 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Navigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter } from "react-router-dom";
 import { Header } from './components/Header';
 import { MyRoutes } from './components/MyRoutes';
 
 import './styles/style.css'
 
+
 function App() {
+  const [user, setUser] = useState({});
+
   return (
-    <main>
-      <BrowserRouter >
-        <Header />
-        <MyRoutes />
-      </BrowserRouter>
-    </main>
+    <BrowserRouter >
+      <Header />
+      <MyRoutes />
+    </BrowserRouter>
   );
 }
 

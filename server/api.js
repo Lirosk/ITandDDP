@@ -63,8 +63,6 @@ async function loginUser(clientId, redirectUri) {
                 codeVerifier,
             }
         };
-        // window.location.href = url;
-        // window.open(url);
     });
 }
 
@@ -107,10 +105,28 @@ function requestAccessToken(credentials) {
                 refreshToken: data.refresh_token,
             };
         });
-
-    }).catch(error => {
-        console.log({ error: error });
     });
 }
 
-module.exports = { loginUser, requestAccessToken };
+function refreshAccessToken(tokenType, accessToken, refreshToken) {
+    return fetch(`https://accounts.spotify.com/api/token`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'Authorization': `${tokenType} ${accessToken}`,
+        },
+        body: {
+            'grant_type': 'refresh_token',
+            'refresh_token': refreshToken,
+        }
+    }).then(response => {
+        return response.json().then(data => {
+            const accessToken = data.access_token;
+            const expiresIn = data.expiresIn;
+
+            return { accessToken, expiresIn };
+        })
+    })
+}
+
+module.exports = { loginUser, requestAccessToken, refreshAccessToken };

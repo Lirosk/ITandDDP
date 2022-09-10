@@ -1,15 +1,21 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import { loginUserViaServer } from '../js/api';
 import { Signin } from '../pages/Signin';
 
-export default function RequireSignin() {
-    const value = localStorage.getItem('access_token');
-    const signedIn = Boolean(value === "undefined" ? false : value);
 
-    alert(signedIn);
+const params = new URLSearchParams(window.location.search);
+const code = params.get('code');
+const state = params.get('state');
+
+export default function RequireSignin() {
+    const accessToken = useAuth(code);
+    const loggedIn = Boolean(accessToken);
+    // alert(accessToken);
 
     return (
-        signedIn
+        loggedIn
             ?
             <Outlet />
             :
