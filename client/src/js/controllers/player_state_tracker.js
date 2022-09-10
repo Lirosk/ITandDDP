@@ -19,6 +19,10 @@ class PlayerStateTracker {
     }
 
     async onEachInterval() {
+        if (playerStateTracker.handlers.length === 0) {
+            return;
+        }
+
         await getPlaybackStatus().then(
             raw_state => {
                 let state = new PlayerbackState(raw_state);

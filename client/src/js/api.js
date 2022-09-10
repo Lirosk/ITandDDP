@@ -433,7 +433,7 @@ export async function addToQueue(id) {
     );
 }
 
-// not documented, 4xx status but works
+// not documentated, 4xx status but works
 export async function removeFromQueue(id) {
     return request(
         `https://api.spotify.com/v1/me/player/queue?device_id=${localStorage.getItem(availableDeviceKey)}&uri=spotify:track:${id}`,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MusicSearch from '../components/MusicSearch.jsx';
-import TrackContainer from '../components/TrackContainer.jsx';
+import TracksContainer from '../components/TracksContainer.jsx';
 import { checkForSavedTracks } from '../js/api.js';
 
 import { getTracks } from '../js/controllers/my_music.js';
@@ -12,36 +12,26 @@ export default function MyMusic() {
 
     useEffect(() => {
         getTracks().then(res => {
-            console.log({
-                tracks,
-                res
+            checkForSavedTracks(res.map(track => track.id)).then(added => {
+                const tracksCopy = [];
+
+                res.forEach((track, i) => {
+                    tracksCopy.push({
+                        ...track,
+                        added: added[i],
+                        next: false,
+                    });
+                });
+
+                setTracks([...tracksCopy]);
             });
-
-            checkForSavedTracks(res.map(track => track.id)).then((added => {
-                for (const i in res) {
-                    const track = res[i];
-                    track.added = added[i];
-                    track.next = false;
-                }
-
-                setTracks([...res]);
-            }));
         });
     }, []);
 
     return (
-        <div className="general-container">
-            <div className="tracks-container">
-                <MusicSearch />
-                <div className="multi-line-tracks">
-                    {tracks.map(track => {
-                        // const track = obj.track;
-                        // const setTrack = obj.setTrack;
-                        return (
-                            <TrackContainer key={track.id} track={track} />
-                        );
-                    })}
-                </div>
+        <div className="tracks-container">
+            <div className="multi-line-tracks">
+                <TracksContainer tracks={tracks} setTracks={setTracks} />
             </div>
         </div>
     )

@@ -1,28 +1,33 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { pause, playTrack, removeSavedTrack, saveTrack } from '../js/api';
+import { addToQueue, pause, playTrack, removeFromQueue, removeSavedTrack, saveTrack } from '../js/api';
 import { msToTrackDuration } from '../js/utils';
 
 export default function TrackContainer(props) {
-    const [activated, setActivated] = useState(false);
-    const [added, setAdded] = useState(props.track.added);
-    const [next, setNext] = useState(props.track.next);
-
     const track = props.track;
+
+    const playing = props.playing;
+    const setPlayingId = props.setPlayingId;
+
+    const [added, setAdded] = useState(track.added);
+    const [next, setNext] = useState(track.next);
 
     let duration = msToTrackDuration(track.duration_ms);
     let performer = track.artists.map(artist => artist.name).join(', ');
     let imageUrl = track.images[2] ? track.images[2].url : "";
 
     const handleTrackSelect = () => {
-        if (activated) {
+        console.log('select');
+
+        if (playing) {
             pause(track.id);
         }
         else {
             playTrack(track.id);
+            setNext(false);
         }
 
-        setActivated(!activated);
+        setPlayingId(track.id);
     };
 
     const addTrack = () => {
@@ -36,13 +41,24 @@ export default function TrackContainer(props) {
         setAdded(!added);
     };
 
+    const playNext = () => {
+        if (next) {
+            removeFromQueue(track.id);
+        }
+        else {
+            addToQueue(track.id);
+        }
+
+        setNext(!next);
+    };
+
     return (
-        <div className={`track-container ${activated ? 'activated' : ''}`} data-id={track.id}>
+        <div className={`track-container ${playing ? 'activated' : ''}`} data-id={track.id}>
             <button onClick={handleTrackSelect} className="track-container__button-wrap"></button>
             <div className="track__cover-wrap">
                 <img className="track__cover" src={imageUrl} />
                 <div className="play-pause-button-wrap">
-                    <button onClick={handleTrackSelect} className={`play-pause-button ${activated ? 'activated' : ''}`}></button>
+                    <button onClick={handleTrackSelect} className={`play-pause-button ${playing ? 'activated' : ''}`}></button>
                 </div>
             </div>
             <div className="track__title-wrap">
@@ -61,7 +77,7 @@ export default function TrackContainer(props) {
             </div>
             <div className="track__buttons-container">
                 <div className="track__button-wrap">
-                    <button className="track__button play-next-button">
+                    <button onClick={playNext} className={`track__button play-next-button ${next ? 'activated' : ''}`}>
                         <svg className="icon play-next">
                             <line x1="0" x2="13" y1="1" y2="1" />
                             <line x1="0" x2="6" y1="7" y2="7" />

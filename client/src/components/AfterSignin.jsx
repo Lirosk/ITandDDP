@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import useDevice from '../hooks/useDevice';
+import MusicSearch from './MusicSearch';
 
 
 export default function AfterSignin() {
@@ -9,6 +10,9 @@ export default function AfterSignin() {
   const { accessToken } = useOutletContext();
 
   return (
-    <Outlet />
+    <div className="general-container">
+      <MusicSearch />
+      <Outlet />
+    </div>
   );
 }
