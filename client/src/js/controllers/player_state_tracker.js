@@ -51,7 +51,8 @@ class PlayerbackState {
      */
     constructor(state) {
         if (!state) {
-            throw Error('Empty state');
+            console.log('Empty state');
+            return;
         }
 
         // console.log(state);

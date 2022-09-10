@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import { MyRoutes } from './components/MyRoutes';
 
 import './styles/style.css'
 
 
 function App() {
-  const [user, setUser] = useState({});
-
-  return (
+    return (
+    // <>
     <BrowserRouter >
       <Header />
-      <MyRoutes />
+      <main>
+        <MyRoutes />
+      </main>
+      <Footer />
     </BrowserRouter>
+    // </>
   );
 }
 

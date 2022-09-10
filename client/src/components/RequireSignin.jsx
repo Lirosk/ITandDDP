@@ -14,10 +14,14 @@ export default function RequireSignin() {
     const loggedIn = Boolean(accessToken);
     // alert(accessToken);
 
+    if (!loggedIn) {
+        window.history.pushState({}, null, '/');
+    }
+
     return (
         loggedIn
             ?
-            <Outlet />
+            <Outlet context={{ accessToken }} />
             :
             <Signin />
     );

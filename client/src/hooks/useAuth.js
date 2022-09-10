@@ -12,7 +12,7 @@ export default function useAuth(code) {
         axios.post('http://localhost:3001/token', {
             code,
         }).then(res => {
-            window.history.pushState({}, null, '/');
+            // window.history.pushState({}, null, '/');
 
             if (!res.data.accessToken) {
                 return;
@@ -22,6 +22,13 @@ export default function useAuth(code) {
             setRefreshToken(res.data.refreshToken);
             setExpiresIn(res.data.expiresIn);
             setTokenType(res.data.tokenType);
+
+            localStorage.setItem('access_token', res.data.accessToken);
+            localStorage.setItem('refresh_token', res.data.refreshToken);
+            localStorage.setItem('expires_in', res.data.expiresIn);
+            localStorage.setItem('token_type', res.data.tokenType);
+
+            alert(1);
         }).catch((err) => {
             console.log(err);
         });
@@ -46,6 +53,16 @@ export default function useAuth(code) {
 
             setAccessToken(newAccessToken);
             setExpiresIn(newExpiresIn);
+
+            localStorage.setItem('access_token', res.accessToken);
+            localStorage.setItem('expires_in', res.expiresIn);
+
+            alert(2);
+
+            setTimeout(
+                setExpiresIn(0),
+                (expiresIn - 600) * 1000
+            );
         });
     }, [refreshToken, expiresIn]);
 

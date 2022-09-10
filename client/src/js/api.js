@@ -9,7 +9,7 @@ const codeVerifierKey = 'code_verifier';
 const clientIdKey = "client_id";
 const accessTokenKey = 'access_token';
 const refreshTokenKey = 'refresh_token';
-const expiresAtKey = 'expires_at';
+const expiresInKey = 'expires_in';
 const usernameKey = 'name';
 const tokenTypeKey = 'token_type';
 const availableDeviceKey = 'available_device';
@@ -267,10 +267,10 @@ export async function getAvailableDevice() {
         data => {
             if (data.devices[0]) {
                 localStorage.setItem(availableDeviceKey, data.devices[0].id);
-                return true;
+                return data.devices[0];
             }
 
-            return false;
+            return null;
         }
     );
 }
@@ -314,22 +314,22 @@ export async function checkForSavedTracks(ids) {
     );
 }
 
-async function checkForSavedTracksRecursive(ids) {
-
-}
-
 export async function saveTrack(id) {
     return request(
         `https://api.spotify.com/v1/me/tracks?ids=${id}`,
         'PUT',
-    );
+    ).catch(error => {
+        console.log(error);
+    });
 }
 
 export async function removeSavedTrack(id) {
     return request(
         `https://api.spotify.com/v1/me/tracks?ids=${id}`,
         'DELETE',
-    );
+    ).catch(error => {
+        console.log(error);
+    });
 }
 
 
@@ -373,14 +373,13 @@ async function request(url, method, body = null) {
                         return getAvailableDevice().then((res) => {
                             if (!res) {
                                 alert('No available devices');
-                                throw ('No available devices');
                             }
 
                             return request(url, method, body);
                         });
                     }
 
-                    throw Error(data.error.message);
+                    console.log(data.error.message);
                 }
             );
         }
@@ -388,6 +387,10 @@ async function request(url, method, body = null) {
         return response;
     }).then(response => {
         // return (response.bodyUsed ? response.json() : {});
+        if (!response) {
+            return null;
+        }
+
         if (response.status === 204) {
             return null;
         }
