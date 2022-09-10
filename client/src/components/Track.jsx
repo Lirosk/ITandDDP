@@ -17,8 +17,6 @@ export default function TrackContainer(props) {
     let imageUrl = track.images[2] ? track.images[2].url : "";
 
     const handleTrackSelect = () => {
-        console.log('select');
-
         if (playing) {
             pause(track.id);
         }

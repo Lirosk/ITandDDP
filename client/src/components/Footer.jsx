@@ -2,7 +2,11 @@ import React from 'react'
 
 import "../styles/components/footer.css";
 
-export function Footer() {
+export function Footer({signedIn}) {
+    if (!signedIn) {
+        return null;
+    }
+    
     return (
         <footer>
             <div className="footer__content">

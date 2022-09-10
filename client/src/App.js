@@ -8,14 +8,16 @@ import './styles/style.css'
 
 
 function App() {
-    return (
+  const [signedIn, setSignedIn] = useState(false);
+
+  return (
     // <>
     <BrowserRouter >
-      <Header />
+      <Header signedIn={signedIn} />
       <main>
-        <MyRoutes />
+        <MyRoutes setSignedIn={setSignedIn} />
       </main>
-      <Footer />
+      <Footer signedIn={signedIn} />
     </BrowserRouter>
     // </>
   );

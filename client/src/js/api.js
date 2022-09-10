@@ -265,6 +265,14 @@ export async function getAvailableDevice() {
     return GET(
         `https://api.spotify.com/v1/me/player/devices`,
         data => {
+            if (!data) {
+                return null;
+            }
+
+            if (!data.devices) {
+                return null;
+            }
+
             if (data.devices[0]) {
                 localStorage.setItem(availableDeviceKey, data.devices[0].id);
                 return data.devices[0];

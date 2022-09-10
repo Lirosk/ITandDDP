@@ -9,8 +9,8 @@ const params = new URLSearchParams(window.location.search);
 const code = params.get('code');
 const state = params.get('state');
 
-export default function RequireSignin() {
-    const accessToken = useAuth(code);
+export default function RequireSignin({ setSignedIn }) {
+    const accessToken = useAuth(code, setSignedIn);
     const loggedIn = Boolean(accessToken);
     // alert(accessToken);
 

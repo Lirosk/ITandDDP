@@ -8,10 +8,10 @@ import AfterSignin from './AfterSignin';
 import RequireSignin from './RequireSignin';
 
 
-export function MyRoutes() {
+export function MyRoutes({ setSignedIn }) {
     return (
         <Routes>
-            <Route element={<RequireSignin />} >
+            <Route element={<RequireSignin setSignedIn={setSignedIn} />} >
                 <Route element={<AfterSignin />}>
                     <Route path='/general' element={<General />} />
                     <Route path='/my_music' element={<MyMusic />} />

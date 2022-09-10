@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
-export default function useAuth(code) {
+export default function useAuth(code, setSignedIn) {
     const [accessToken, setAccessToken] = useState();
     const [refreshToken, setRefreshToken] = useState();
     const [expiresIn, setExpiresIn] = useState();
@@ -12,8 +12,6 @@ export default function useAuth(code) {
         axios.post('http://localhost:3001/token', {
             code,
         }).then(res => {
-            // window.history.pushState({}, null, '/');
-
             if (!res.data.accessToken) {
                 return;
             }
@@ -28,7 +26,7 @@ export default function useAuth(code) {
             localStorage.setItem('expires_in', res.data.expiresIn);
             localStorage.setItem('token_type', res.data.tokenType);
 
-            alert(1);
+            setSignedIn(true);
         }).catch((err) => {
             console.log(err);
         });
