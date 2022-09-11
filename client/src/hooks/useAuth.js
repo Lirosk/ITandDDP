@@ -5,7 +5,7 @@ import axios from 'axios';
 export default function useAuth(code, setSignedIn) {
     const [accessToken, setAccessToken] = useState();
     const [refreshToken, setRefreshToken] = useState();
-    const [expiresIn, setExpiresIn] = useState();
+    const [expiresAt, setExpiresAt] = useState();
     const [tokenType, setTokenType] = useState();
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function useAuth(code, setSignedIn) {
 
             setAccessToken(res.data.accessToken);
             setRefreshToken(res.data.refreshToken);
-            setExpiresIn(res.data.expiresIn);
+            setExpiresAt(res.data.expiresIn + (Date.now() / 1000));
             setTokenType(res.data.tokenType);
 
             sessionStorage.setItem('access_token', res.data.accessToken);
@@ -30,10 +30,10 @@ export default function useAuth(code, setSignedIn) {
         }).catch((err) => {
             console.log(err);
         });
-    }, [code]);
+    }, []);
 
     useEffect(() => {
-        if (!refreshToken || !expiresIn) {
+        if (!refreshToken || !expiresAt) {
             return;
         }
 
@@ -50,7 +50,7 @@ export default function useAuth(code, setSignedIn) {
             const newExpiresIn = res.expiresIn;
 
             setAccessToken(newAccessToken);
-            setExpiresIn(newExpiresIn);
+            setExpiresAt(newExpiresIn);
 
             sessionStorage.setItem('access_token', res.accessToken);
             sessionStorage.setItem('expires_in', res.expiresIn);
@@ -58,11 +58,11 @@ export default function useAuth(code, setSignedIn) {
             alert(2);
 
             setTimeout(
-                setExpiresIn(0),
-                (expiresIn - 600) * 1000
+                setExpiresAt(0),
+                (expiresAt - 600) * 1000
             );
         });
-    }, [refreshToken, expiresIn]);
+    }, []);
 
     return accessToken;
 }

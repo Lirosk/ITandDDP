@@ -407,13 +407,11 @@ async function request(url, method, body = null) {
     ).then(response => {
         if (![2, 3].includes(Math.floor(response.status / 100))) {
             if (response.status === 401) {
-                // return refreshAccessToken().then((res) => {
-                //     if (!res) {
-                //         alert('Re');
-                //     }
-
-                //     return request(url, method, body);
-                // });
+                return refreshAccessToken().then(() => {
+                    return request(url, method, body).catch(error =>{
+                        console.log(error);
+                    });
+                });
             }
 
             return response.json().then(
@@ -435,7 +433,6 @@ async function request(url, method, body = null) {
 
         return response;
     }).then(response => {
-        // return (response.bodyUsed ? response.json() : {});
         if (!response) {
             return null;
         }
@@ -445,6 +442,23 @@ async function request(url, method, body = null) {
         }
 
         return response.json();
+    });
+}
+
+async function refreshAccessToken() {
+    axios.post('http://localhost:3001/refresh', {
+        refreshToken: sessionStorage.getItem(refreshTokenKey),
+        accessToken: sessionStorage.getItem(accessTokenKey),
+        tokenType: sessionStorage.getItem(tokenTypeKey),
+    }).then(res => {
+        if (!res.accessToken) {
+            return;
+        }
+
+        sessionStorage.setItem(accessTokenKey, res.accessToken);
+        sessionStorage.setItem(expiresInKey, res.expiresIn + (Date.now() / 1e3));
+
+        alert(2);
     });
 }
 
