@@ -284,15 +284,22 @@ export async function getAvailableDevice() {
 }
 
 export async function playAlbum(id, position = 0, progress_ms = 0, is_playlist = false) {
-    return PUT(
-        `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
-        {
-            'context_uri': `spotify:${is_playlist ? 'playlist' : 'album'}:${id}`,
-            "position_ms": progress_ms,
-            "offset": {
-                "position": position,
-            }
-        });
+    return getPlaybackStatus().then(data => {
+        if (data && data.context && data.context.uri.includes(id)) {
+            progress_ms = data.progress_ms;
+            position = data.item.track_number;
+        }
+
+        return PUT(
+            `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
+            {
+                'context_uri': `spotify:${is_playlist ? 'playlist' : 'album'}:${id}`,
+                "position_ms": progress_ms,
+                "offset": {
+                    "position": position,
+                }
+            });
+    })
 }
 
 
@@ -408,26 +415,23 @@ async function request(url, method, body = null) {
 }
 
 export async function playTrack(id, position_ms = 0) {
-    return GET(
-        `https://api.spotify.com/v1/me/player`,
-        data => {
-            if (!position_ms && data && data.item.id === id) {
-                position_ms = data.progress_ms;
-            }
-
-            return request(
-                `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
-                'PUT',
-                {
-                    uris: [`spotify:track:${id}`],
-                    position_ms,
-                }
-            );
+    return getPlaybackStatus().then(data => {
+        if (!position_ms && data && data.item.id === id) {
+            position_ms = data.progress_ms;
         }
-    ).catch(error => {
+
+        return request(
+            `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
+            'PUT',
+            {
+                uris: [`spotify:track:${id}`],
+                position_ms,
+            }
+        );
+    }).catch(error => {
         console.log(error);
         return null;
-    })
+    });
 }
 
 export async function pause() {
