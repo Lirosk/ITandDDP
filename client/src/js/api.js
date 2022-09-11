@@ -321,7 +321,7 @@ export async function playAlbum(id, position = 0, progress_ms = 0, is_playlist =
     return getPlaybackStatus().then(data => {
         if (data && data.context && data.context.uri.includes(id)) {
             progress_ms = data.progress_ms;
-            position = data.item.track_number;
+            position = data.item.track_number - 1;
         }
 
         return PUT(
