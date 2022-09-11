@@ -9,18 +9,20 @@ const code = params.get('code');
 const state = params.get('state');
 
 export default function RequireSignin({ setSignedIn }) {
-    const accessToken = useAuth(code, setSignedIn);
-    const loggedIn = Boolean(accessToken);
+    useAuth(code, setSignedIn);
+    const loggedIn = Boolean(sessionStorage.getItem('access_token'));
 
 
     if (!loggedIn) {
         window.history.pushState({}, null, '');
     }
 
+    setSignedIn(loggedIn);
+
     return (
         loggedIn
             ?
-            <Outlet context={{ accessToken }} />
+            <Outlet />
             :
             <Signin />
     );
