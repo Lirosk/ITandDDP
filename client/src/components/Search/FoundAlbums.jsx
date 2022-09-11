@@ -47,9 +47,9 @@ export default function FoundAlbums({ q }) {
         }, [q]);
 
     return (
-        <div className="one-line-playlists__container">
+        <>
             <AlbumsContainer albums={albums} />
             <div ref={lastElement} style={{ backgroundColor: '#FFF', height: '1px', width: '1px' }}></div>
-        </div>
+        </>
     )
 }

@@ -46,9 +46,9 @@ export default function FoundTracks({ q }) {
         }, [q]);
 
     return (
-        <div className="found-tracks-container">
+        <>
             <TracksContainer tracks={tracks} />
             <div ref={lastElement} style={{ height: '1px' }}></div>
-        </div>
+        </>
     )
 }

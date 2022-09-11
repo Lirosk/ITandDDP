@@ -30,13 +30,17 @@ export default function Search({ setPage }) {
           <h3 className="primary-text">Found playlists</h3>
           <button onClick={handleExpand} className={`ref-text expand-btn ${expandBtnState ? '' : 'expanded'}`}>{expandBtnStates[expandBtnState]}</button>
         </div>
-        <FoundAlbums q={q} />
+        <div className={`one-line-playlists__container ${expandBtnState ? 'expanded' : ''}`}>
+          <FoundAlbums q={q} />
+        </div>
       </div>
       <div className="found-tracks">
         <div className="one-line-playlists__tools">
           <h3 className="primary-text">Found tracks</h3>
         </div>
-        <FoundTracks q={q} />
+        <div className="found-tracks-container">
+          <FoundTracks q={q} />
+        </div>
       </div>
     </>
   )
