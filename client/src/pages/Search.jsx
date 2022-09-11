@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Search({ setPage }) {
-  setPage('search');
+  useEffect(
+    () => {
+      setPage('search');
+    }, []);
 
   return (
     <h1>Search</h1>

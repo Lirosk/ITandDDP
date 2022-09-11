@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export function General({setPage}) {
-    setPage('general');
+export function General({ setPage }) {
+    useEffect(
+        () => {
+            setPage('general');
+        }, []);
 
     return (
         <>
