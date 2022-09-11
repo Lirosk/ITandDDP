@@ -7,8 +7,12 @@ import { getTracks } from '../js/controllers/my_music.js';
 import '../styles/pages/my_music.css';
 
 
-export default function MyMusic({setPage}) {
-    setPage('my_music');
+export default function MyMusic({ setPage }) {
+    useEffect(
+        () => {
+            setPage('my_music');
+        }, []);
+
     const [tracks, setTracks] = useState([]);
 
     useEffect(() => {
