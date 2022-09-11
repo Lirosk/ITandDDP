@@ -46,6 +46,10 @@ class PlayerStateTracker {
     extractStatus(state) {
         return PlayerbackState(state);
     }
+
+    clearHandlers() {
+        this.handlers = [];
+    }
 }
 
 class PlayerbackState {
@@ -71,7 +75,7 @@ class PlayerbackState {
         this.track_name = state.item.name;
         this.artist = state.item.artists.map(item => item.name).join(', ');
         this.track_image_url = state.item.album.images[2].url;
-        this.is_album_context = state.context ? ['playlist', 'album'].includes(state.context.type)  : false;
+        this.is_album_context = state.context ? ['playlist', 'album'].includes(state.context.type) : false;
         this.album_id = (state.context && state.context.type === 'playlist') ? (/\w+:\w+:([\w\d]+)/.exec(state.context.uri))[1] : state.item.album.id;
     }
 

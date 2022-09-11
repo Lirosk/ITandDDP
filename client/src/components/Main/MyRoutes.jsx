@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
+import { playerStateTracker } from '../../js/controllers/player_state_tracker';
 import { General } from '../../pages/General';
 import MyMusic from '../../pages/MyMusic';
 import MyPlaylists from '../../pages/MyPlaylists';
@@ -14,9 +15,15 @@ export function MyRoutes() {
     const [signedIn, setSignedIn] = useState(false);
     const [page, setPage] = useState('/');
 
+    const logoutHandler = () =>{
+        sessionStorage.clear();
+        playerStateTracker.clearHandlers();
+        setSignedIn(false);
+    }
+
     return (
         <>
-            <Header signedIn={signedIn} page={page} />
+            <Header signedIn={signedIn} logoutHandler={logoutHandler} page={page} />
             <main>
                 <Routes>
                     <Route element={<RequireSignin setSignedIn={setSignedIn} />} >

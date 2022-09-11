@@ -420,6 +420,7 @@ async function request(url, method, body = null) {
                         return getAvailableDevice().then((res) => {
                             if (!res) {
                                 alert('No available devices');
+                                getAvailableDevice();
                             }
 
                             return request(url, method, body);

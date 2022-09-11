@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 import "../../styles/components/header.css"
 
-export function Header({ signedIn, page }) {
-
+export function Header({ signedIn, page, logoutHandler }) {
     const links = [
         {
             path: 'general',
@@ -49,9 +48,9 @@ export function Header({ signedIn, page }) {
                 </div>
                 {signedIn
                     ?
-                    <Link className="header__ref ref-text logout-btn" to="signin">
+                    <button onClick={logoutHandler} className="header__ref ref-text logout-btn">
                         Log out
-                    </Link>
+                    </button>
                     :
                     ''
                 }
