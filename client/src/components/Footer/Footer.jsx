@@ -104,7 +104,7 @@ export function Footer({ signedIn }) {
     return (
         <footer>
             <div className="footer__content">
-                <div className="player-container" data-track_id="">
+                <div className="player-container">
                     <button onClick={handlePlayPause} className={`player__icon ${playing ? 'activated' : ''}`}>
                         <svg className="icon">
                             <circle cx="50%" cy="50%" r="13px" />
@@ -142,7 +142,7 @@ export function Footer({ signedIn }) {
                                     {track.artist}
                                 </span>
                             </div>
-                            <span className="audio__progress-time" data-ms="">{duration}</span>
+                            <span className="audio__progress-time">{duration}</span>
                         </div>
                         <div className="audio__slider">
                             <ProgressSlider value={progress} handleProgressChange={handleProgressChange} />

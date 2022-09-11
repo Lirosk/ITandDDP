@@ -51,7 +51,7 @@ export default function TrackContainer(props) {
     };
 
     return (
-        <div className={`track-container ${playing ? 'activated' : ''}`} data-id={track.id}>
+        <div className={`track-container ${playing ? 'activated' : ''}`}>
             <button onClick={handleTrackSelect} className="track-container__button-wrap"></button>
             <div className="track__cover-wrap">
                 <img className="track__cover" src={imageUrl} />
