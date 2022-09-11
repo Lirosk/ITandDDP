@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { getLastPlayedTrack, seekTo, setVolume } from '../../js/api';
+import { getLastPlayedTrack, playNext, playPrevious, playTrack, seekTo, setVolume as apiSetVolume, setRepeat as apiSetRepeat, setShuffle as apiSetShuffle, pause } from '../../js/api';
 import { playerStateTracker } from '../../js/controllers/player_state_tracker';
 import { msToTrackDuration } from '../../js/utils';
 
@@ -16,11 +16,14 @@ export function Footer({ signedIn }) {
     }
 
     const [track, setTrack] = useState({});
-    const [progressPercent, setProgressPercent] = useState(0);
-    const [volumePercent, setVolumePercent] = useState(0);
+    const [progress, setProgress] = useState(0);
+    const [volume, setVolume] = useState(0);
+    const [playing, setPlaying] = useState(false);
+    const [repeat, setRepeat] = useState(false);
+    const [shuffle, setShuffle] = useState(false);
 
     useEffect(() => {
-        getLastPlayedTrack().then(track => {
+        getLastPlayedTrack().then(lastTrack => {
             playerStateTracker.addStateChangeHandler(
                 (...args) => true,
                 (_, state) => {
@@ -31,17 +34,21 @@ export function Footer({ signedIn }) {
                         imageUrl: state.track_image_url,
                         durationMs: state.duration_ms,
                     });
-                    setProgressPercent(Math.round((Number(state.progress_ms) / Number(state.duration_ms)) * 100));
-                    setVolumePercent(Number(state.volume_percent) * 100);
+                    
+                    setShuffle(state.shuffle_state);
+                    setRepeat(state.repeat_state === 'track');
+                    setProgress(Math.round((Number(state.progress_ms) / Number(state.duration_ms)) * 100));
+                    setVolume(Number(state.volume_percent) * 100);
+                    setPlaying(state.is_playing);
                 }
             );
 
             setTrack({
-                id: track.id,
-                name: track.name,
-                artist: track.artists.map(artist => artist.name).join(', '),
-                imageUrl: track.images[2].url,
-                durationMs: track.duration_ms,
+                id: lastTrack.id,
+                name: lastTrack.name,
+                artist: lastTrack.artists.map(artist => artist.name).join(', '),
+                imageUrl: lastTrack.images[2].url,
+                durationMs: lastTrack.duration_ms,
             });
         });
     }, []);
@@ -49,13 +56,43 @@ export function Footer({ signedIn }) {
     const handleProgressChange = (value_percent) => {
         value_percent = Number(value_percent);
         seekTo(Math.floor(Number(track.durationMs) * (value_percent / 100)));
-        setProgressPercent(value_percent);
+        setProgress(value_percent);
     }
 
     const handleVolumeChange = (volume_percent) => {
         volume_percent = Number(volume_percent);
+        apiSetVolume(volume_percent);
         setVolume(volume_percent);
-        setVolumePercent(volume_percent);
+    };
+
+    const handlePlayPause = () => {
+        setPlaying(!playing);
+
+        if (playing) {
+            pause();
+        }
+        else {
+            playTrack(track.id);
+        }
+    };
+
+    const handlePlayNext = () => {
+        playNext();
+    };
+
+    const handlePlayPrev = () => {
+        playPrevious();
+    };
+
+    const handleRepeat = () => {
+        apiSetRepeat(!repeat);
+        setRepeat(!repeat);
+        
+    };
+
+    const handleShuffle = () => {
+        apiSetShuffle(!shuffle);
+        setShuffle(!shuffle);
     };
 
     const duration = msToTrackDuration(track.durationMs);
@@ -64,7 +101,7 @@ export function Footer({ signedIn }) {
         <footer>
             <div className="footer__content">
                 <div className="player-container" data-track_id="">
-                    <button className="player__icon">
+                    <button onClick={handlePlayPause} className={`player__icon ${playing ? 'activated' : ''}`}>
                         <svg className="icon">
                             <circle cx="50%" cy="50%" r="13px" />
                         </svg>
@@ -76,13 +113,13 @@ export function Footer({ signedIn }) {
                             <rect x="7px" y="0" width="4px" height="11px" />
                         </svg>
                     </button>
-                    <button className="player__prev">
+                    <button onClick={handlePlayPrev} className="player__prev">
                         <svg className="icon">
                             <rect x="0" y="0" width="2" height="11" />
                             <polygon points="2 5.5, 10 11, 10 0" />
                         </svg>
                     </button>
-                    <button className="player__next">
+                    <button onClick={handlePlayNext} className="player__next">
                         <svg className="icon">
                             <rect x="9" y="0" width="2" height="11" />
                             <polygon points="0 0, 0 11, 9 5.5" />
@@ -104,13 +141,13 @@ export function Footer({ signedIn }) {
                             <span className="audio__progress-time" data-ms="">{duration}</span>
                         </div>
                         <div className="audio__slider">
-                            <ProgressSlider value={progressPercent} handleProgressChange={handleProgressChange} />
+                            <ProgressSlider value={progress} handleProgressChange={handleProgressChange} />
                         </div>
                     </div>
                     <div className="player__volume">
-                        <VolumeSlider value={volumePercent} handleVolumeChange={handleVolumeChange} />
+                        <VolumeSlider value={volume} handleVolumeChange={handleVolumeChange} />
                     </div>
-                    <button className="player__shuffle">
+                    <button onClick={handleShuffle} className={`player__shuffle ${shuffle ? 'activated' : ''}`}>
                         <svg className="icon" viewBox="0 0 20 16" width="20px" height="16px">
                             <polygon points="0 0, 20 16" />
                             <polygon points="0 16, 20 0" />
@@ -119,7 +156,7 @@ export function Footer({ signedIn }) {
                             <polygon points="20 0, 20 4, 16 0" />
                         </svg>
                     </button>
-                    <button className="player__repeat">
+                    <button onClick={handleRepeat} className={`player__repeat ${repeat ? 'activated' : ''}`}>
                         <svg className="icon" viewBox="0 0 20 16" width="20px" height="16px">
                             <polyline points="3 0, 17 0, 17 6" />
                             <polyline points="3 10, 3 16, 17 16" />
