@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter } from "react-router-dom";
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
@@ -9,19 +9,10 @@ import './styles/style.css'
 
 
 function App() {
-  const [signedIn, setSignedIn] = useState(false);
-  const [page, setPage] = useState('/');
-
   return (
-    // <>
     <BrowserRouter >
-      <Header signedIn={signedIn} page={page}/>
-      <main>
-        <MyRoutes setSignedIn={setSignedIn} setPage={setPage} />
-      </main>
-      <Footer signedIn={signedIn} />
+      <MyRoutes />
     </BrowserRouter>
-    // </>
   );
 }
 

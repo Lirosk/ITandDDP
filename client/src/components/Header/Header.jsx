@@ -29,7 +29,7 @@ export function Header({ signedIn, page }) {
                         <>
                             {links.map(link => {
                                 return (
-                                    <Link className={`header__ref ${page === link.path ? 'here-i-am' : ''}`} to={link.path}>
+                                    <Link key={link.path} className={`header__ref ${page === link.path ? 'here-i-am' : ''}`} to={link.path}>
                                         {link.title}
                                     </Link>
                                 );
