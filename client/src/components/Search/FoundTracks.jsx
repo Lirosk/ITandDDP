@@ -9,7 +9,7 @@ export default function FoundTracks({ q }) {
     const [tracks, setTracks] = useState([]);
     const lastElement = useRef();
 
-    const market = localStorage.getItem('country');
+    const market = sessionStorage.getItem('country');
     const nextTracks = 'nextTracks';
 
     const loadTracks = async (url) => {
@@ -28,18 +28,18 @@ export default function FoundTracks({ q }) {
         }
 
         setTracks([...tracks, ...items]);
-        localStorage.setItem(nextTracks, next);
+        sessionStorage.setItem(nextTracks, next);
     };
 
     const [fetchTracks, isTracksLoading, trackError] = useFetching(loadTracks);
 
     useObserver(lastElement, true, isTracksLoading, () => {
-        fetchTracks(localStorage.getItem(nextTracks));
+        fetchTracks(sessionStorage.getItem(nextTracks));
     });
 
     useEffect(
         () => {
-            localStorage.setItem(
+            sessionStorage.setItem(
                 nextTracks,
                 `https://api.spotify.com/v1/search?q=${q}&type=track&include_external=audio&offset=0&limit=50${market ? `&market=${market}` : ''}`
             );

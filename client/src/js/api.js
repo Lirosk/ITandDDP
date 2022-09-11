@@ -39,13 +39,13 @@ export async function getUserData() {
     return GET(
         UserUrl,
         data => {
-            localStorage.setItem(usernameKey, data.display_name);
-            localStorage.setItem(countryKey, data.country);
+            sessionStorage.setItem(usernameKey, data.display_name);
+            sessionStorage.setItem(countryKey, data.country);
         });
 }
 
 export async function getRecomendations(limit, onEachLoadedCategory) {
-    let market = localStorage.getItem(countryKey);
+    let market = sessionStorage.getItem(countryKey);
 
     return GET(
         `https://api.spotify.com/v1/browse/categories?offset=0&limit=50${market ? `&country=${market}` : ''}`,
@@ -308,7 +308,7 @@ export async function getAvailableDevice() {
             }
 
             if (data.devices[0]) {
-                localStorage.setItem(availableDeviceKey, data.devices[0].id);
+                sessionStorage.setItem(availableDeviceKey, data.devices[0].id);
                 return data.devices[0];
             }
 
@@ -325,7 +325,7 @@ export async function playAlbum(id, position = 0, progress_ms = 0, is_playlist =
         }
 
         return PUT(
-            `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
+            `https://api.spotify.com/v1/me/player/play?device_id=${sessionStorage.getItem(availableDeviceKey)}`,
             {
                 'context_uri': `spotify:${is_playlist ? 'playlist' : 'album'}:${id}`,
                 "position_ms": progress_ms,
@@ -392,7 +392,7 @@ async function request(url, method, body = null) {
     const payload = {
         method,
         headers: {
-            'Authorization': localStorage.getItem(tokenTypeKey) + ' ' + localStorage.getItem(accessTokenKey),
+            'Authorization': sessionStorage.getItem(tokenTypeKey) + ' ' + sessionStorage.getItem(accessTokenKey),
             'Content-Type': 'application/json'
         },
     };
@@ -457,7 +457,7 @@ export async function playTrack(id, position_ms = 0, ids = []) {
         const trackUri = `spotify:track:${id}`;
 
         return request(
-            `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
+            `https://api.spotify.com/v1/me/player/play?device_id=${sessionStorage.getItem(availableDeviceKey)}`,
             'PUT',
             {
                 uris: ids.length === 0
@@ -481,7 +481,7 @@ export async function playTrack(id, position_ms = 0, ids = []) {
 
 export async function pause() {
     return request(
-        `https://api.spotify.com/v1/me/player/pause?device_id=${localStorage.getItem(availableDeviceKey)}`,
+        `https://api.spotify.com/v1/me/player/pause?device_id=${sessionStorage.getItem(availableDeviceKey)}`,
         'PUT'
     );
 }
@@ -497,7 +497,7 @@ export async function getCurrentProgessMs() {
 
 export async function addToQueue(id) {
     return request(
-        `https://api.spotify.com/v1/me/player/queue?device_id=${localStorage.getItem(availableDeviceKey)}&uri=spotify:track:${id}`,
+        `https://api.spotify.com/v1/me/player/queue?device_id=${sessionStorage.getItem(availableDeviceKey)}&uri=spotify:track:${id}`,
         'POST'
     );
 }
@@ -505,7 +505,7 @@ export async function addToQueue(id) {
 // not documentated, 4xx status but works
 export async function removeFromQueue(id) {
     return request(
-        `https://api.spotify.com/v1/me/player/queue?device_id=${localStorage.getItem(availableDeviceKey)}&uri=spotify:track:${id}`,
+        `https://api.spotify.com/v1/me/player/queue?device_id=${sessionStorage.getItem(availableDeviceKey)}&uri=spotify:track:${id}`,
         'DELETE'
     );
 }
@@ -527,20 +527,20 @@ export function trackPlaybackState(interval_ms = 500) {
 
 export function playNext() {
     return request(
-        `https://api.spotify.com/v1/me/player/next?device_id=${localStorage.getItem(availableDeviceKey)}`,
+        `https://api.spotify.com/v1/me/player/next?device_id=${sessionStorage.getItem(availableDeviceKey)}`,
         'POST'
     );
 }
 
 export function playPrevious() {
     return request(
-        `https://api.spotify.com/v1/me/player/previous?device_id=${localStorage.getItem(availableDeviceKey)}`,
+        `https://api.spotify.com/v1/me/player/previous?device_id=${sessionStorage.getItem(availableDeviceKey)}`,
         'POST'
     );
 }
 
 export function checkForUserLoggedIn() {
-    if (!localStorage.getItem(accessTokenKey)) {
+    if (!sessionStorage.getItem(accessTokenKey)) {
         window.location.href = `${window.location.origin}/pages/signin.html`;
     }
 }
@@ -556,28 +556,28 @@ export function getLastPlayedTrack() {
 
 export function seekTo(position_ms) {
     return request(
-        `https://api.spotify.com/v1/me/player/seek?device_id=${localStorage.getItem(availableDeviceKey)}&position_ms=${position_ms}`,
+        `https://api.spotify.com/v1/me/player/seek?device_id=${sessionStorage.getItem(availableDeviceKey)}&position_ms=${position_ms}`,
         'PUT'
     );
 }
 
 export function setVolume(vol_percent) {
     return request(
-        `https://api.spotify.com/v1/me/player/volume?device_id=${localStorage.getItem(availableDeviceKey)}&volume_percent=${vol_percent}`,
+        `https://api.spotify.com/v1/me/player/volume?device_id=${sessionStorage.getItem(availableDeviceKey)}&volume_percent=${vol_percent}`,
         'PUT'
     );
 }
 
 export function setRepeat(state) {
     return request(
-        `https://api.spotify.com/v1/me/player/repeat?device_id=${localStorage.getItem(availableDeviceKey)}&state=${state ? 'track' : 'off'}`,
+        `https://api.spotify.com/v1/me/player/repeat?device_id=${sessionStorage.getItem(availableDeviceKey)}&state=${state ? 'track' : 'off'}`,
         'PUT'
     );
 }
 
 export function setShuffle(state) {
     return request(
-        `https://api.spotify.com/v1/me/player/shuffle?device_id=${localStorage.getItem(availableDeviceKey)}&state=${state}`,
+        `https://api.spotify.com/v1/me/player/shuffle?device_id=${sessionStorage.getItem(availableDeviceKey)}&state=${state}`,
         'PUT'
     );
 }

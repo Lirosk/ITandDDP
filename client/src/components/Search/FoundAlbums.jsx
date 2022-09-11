@@ -9,7 +9,7 @@ export default function FoundAlbums({ q }) {
     const [albums, setAlbums] = useState([]);
     const lastElement = useRef();
 
-    const market = localStorage.getItem('country');
+    const market = sessionStorage.getItem('country');
     const nextAlbums = 'nextAlbums';
 
     const loadAlbums = async (url) => {
@@ -29,18 +29,18 @@ export default function FoundAlbums({ q }) {
         }
 
         setAlbums([...albums, ...items]);
-        localStorage.setItem(nextAlbums, next);
+        sessionStorage.setItem(nextAlbums, next);
     };
 
     const [fetchAlbums, isTracksLoading, trackError] = useFetching(loadAlbums);
 
     useObserver(lastElement, true, isTracksLoading, () => {
-        fetchAlbums(localStorage.getItem(nextAlbums));
+        fetchAlbums(sessionStorage.getItem(nextAlbums));
     });
 
     useEffect(
         () => {
-            localStorage.setItem(
+            sessionStorage.setItem(
                 nextAlbums,
                 `https://api.spotify.com/v1/search?q=${q}&type=album&include_external=audio&offset=0&limit=50${market ? `&market=${market}` : ''}`,
             );

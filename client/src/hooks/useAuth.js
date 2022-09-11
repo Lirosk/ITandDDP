@@ -21,10 +21,10 @@ export default function useAuth(code, setSignedIn) {
             setExpiresIn(res.data.expiresIn);
             setTokenType(res.data.tokenType);
 
-            localStorage.setItem('access_token', res.data.accessToken);
-            localStorage.setItem('refresh_token', res.data.refreshToken);
-            localStorage.setItem('expires_in', res.data.expiresIn);
-            localStorage.setItem('token_type', res.data.tokenType);
+            sessionStorage.setItem('access_token', res.data.accessToken);
+            sessionStorage.setItem('refresh_token', res.data.refreshToken);
+            sessionStorage.setItem('expires_in', res.data.expiresIn);
+            sessionStorage.setItem('token_type', res.data.tokenType);
 
             setSignedIn(true);
         }).catch((err) => {
@@ -52,8 +52,8 @@ export default function useAuth(code, setSignedIn) {
             setAccessToken(newAccessToken);
             setExpiresIn(newExpiresIn);
 
-            localStorage.setItem('access_token', res.accessToken);
-            localStorage.setItem('expires_in', res.expiresIn);
+            sessionStorage.setItem('access_token', res.accessToken);
+            sessionStorage.setItem('expires_in', res.expiresIn);
 
             alert(2);
 

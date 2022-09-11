@@ -11,7 +11,7 @@ export default function useDevice() {
             }
 
             setDeviceId(res.id);
-            localStorage.setItem('available_device', res.id);
+            sessionStorage.setItem('available_device', res.id);
         }).catch((error) =>{
             console.log(error);
         })
