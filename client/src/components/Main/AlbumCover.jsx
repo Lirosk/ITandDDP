@@ -31,7 +31,7 @@ export default function AlbumCover({ album, playing }) {
                 </div>
             </div>
             <span className="album__title">{album.name}</span>
-            <Link className="album__performer" to={`search?q=${encodeURIComponent(performer)}`}>{performer}</Link>
+            <Link className="album__performer" to={`/search?q=${encodeURIComponent(performer)}`}>{performer}</Link>
             <span className="album__release-date">{album.releaseDate}</span>
         </div>
     )

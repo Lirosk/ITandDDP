@@ -8,7 +8,7 @@ export default function AlbumsContainer({ albums }) {
     playerStateTracker.addStateChangeHandler(
         (...args) => true,
         (_, state) => {
-            setPlayingId(state.is_playing ? state.album_id : '');
+            setPlayingId(state.is_album_context && state.is_playing ? state.album_id : '');
         }
     );
 

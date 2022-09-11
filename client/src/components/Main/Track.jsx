@@ -60,7 +60,7 @@ export default function Track({track, playing, getIds}) {
                         </span>
                     </div>
                     <div className="audio__title__text-wrap">
-                        <Link className="song__performer" to={`search?q=${encodeURIComponent(performer)}`}>
+                        <Link className="song__performer" to={`/search?q=${encodeURIComponent(performer)}`}>
                             {performer}
                         </Link>
                     </div>

@@ -35,7 +35,7 @@ export function loginUserViaServer() {
 }
 
 
-async function getUserData() {
+export async function getUserData() {
     return GET(
         UserUrl,
         data => {
@@ -218,21 +218,55 @@ export function getUsersAlbums() {
         });
 }
 
+export async function getItems({ url, extractItemFromEntry, attr, itemAttr, predicate }) {
+    return GET(
+        url,
+        data => {
+            if (!data) {
+                return;
+            }
+
+            const container = attr ? data[attr] : data;
+
+            const items = [];
+            const next = container.next;
+            try {
+                container.items.forEach(entry => {
+                    if (!(predicate && !predicate(entry))) {
+                        items.push(extractItemFromEntry(itemAttr ? entry[itemAttr] : entry));
+                    }
+                });
+            }
+            catch (error) {
+                console.log(error);
+            }
+            finally {
+                return { items, next };
+            }
+        })
+}
+
 export async function getNextItems(nextUrl, extractItemFromEntry, handleExtractedItems, attr = undefined, itemAttr = undefined, maxItems = 0, predicate = null) {
     getNextItemsRecursive(nextUrl, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, 0);
 }
 
 async function getNextItemsRecursive(nextUrl, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, hasItems) {
-    GET(
+    await GET(
         nextUrl,
-        data => {
+        async data => {
+            if (!data) {
+                return;
+            }
+
             const container = attr ? data[attr] : data;
 
             let res = [];
             try {
                 container.items.forEach(entry => {
                     if (!(predicate && !predicate(entry))) {
-                        if (maxItems && hasItems + 1 > maxItems) {
+                        if (
+                            (hasItems + 1 > container.total) ||
+                            (maxItems && hasItems + 1 > maxItems)) {
                             throw Error('max');
                         }
 
@@ -242,8 +276,8 @@ async function getNextItemsRecursive(nextUrl, extractItemFromEntry, handleExtrac
                     }
                 });
 
-                if (container.next) {
-                    getNextItemsRecursive(container.next, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, hasItems);
+                if (container.next && hasItems < container.total && hasItems < maxItems) {
+                    await getNextItemsRecursive(container.next, extractItemFromEntry, handleExtractedItems, attr, itemAttr, maxItems, predicate, hasItems);
                 }
             }
             catch (error) {
@@ -420,18 +454,23 @@ export async function playTrack(id, position_ms = 0, ids = []) {
             position_ms = data.progress_ms;
         }
 
+        const trackUri = `spotify:track:${id}`;
+
         return request(
             `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
             'PUT',
             {
                 uris: ids.length === 0
                     ?
-                    [`spotify:track:${id}`]
+                    [trackUri]
                     :
                     ids.map(i => {
                         return `spotify:track:${i}`
                     }),
                 position_ms,
+                offset: {
+                    uri: trackUri,
+                }
             }
         );
     }).catch(error => {
