@@ -414,9 +414,9 @@ async function request(url, method, body = null) {
     });
 }
 
-export async function playTrack(id, position_ms = 0) {
+export async function playTrack(id, position_ms = 0, ids = []) {
     return getPlaybackStatus().then(data => {
-        if (!position_ms && data && data.item.id === id) {
+        if (data && data.item.id === id) {
             position_ms = data.progress_ms;
         }
 
@@ -424,7 +424,13 @@ export async function playTrack(id, position_ms = 0) {
             `https://api.spotify.com/v1/me/player/play?device_id=${localStorage.getItem(availableDeviceKey)}`,
             'PUT',
             {
-                uris: [`spotify:track:${id}`],
+                uris: ids.length === 0
+                    ?
+                    [`spotify:track:${id}`]
+                    :
+                    ids.map(i => {
+                        return `spotify:track:${i}`
+                    }),
                 position_ms,
             }
         );

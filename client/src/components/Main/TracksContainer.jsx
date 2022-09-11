@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { playerStateTracker } from '../../js/controllers/player_state_tracker';
-import TrackContainer from './Track';
+import Track from './Track';
 
 export default function TracksContainer({ tracks }) {
     const [playingId, setPlayingId] = useState('');
@@ -12,11 +12,15 @@ export default function TracksContainer({ tracks }) {
         }
     )
 
+    const getIds = ()=>{
+        return tracks.map(track=> track.id);
+    };
+
     return (
         <>
             {tracks.map((track, i) => {
                 return (
-                    <TrackContainer key={track.id} track={track} playing={track.id === playingId} />
+                    <Track key={track.id} track={track} playing={track.id === playingId} getIds={getIds}/>
                 );
             })}
         </>
