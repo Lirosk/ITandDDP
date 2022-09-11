@@ -10,13 +10,14 @@ import './styles/style.css'
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
+  const [page, setPage] = useState('/');
 
   return (
     // <>
     <BrowserRouter >
-      <Header signedIn={signedIn} />
+      <Header signedIn={signedIn} page={page}/>
       <main>
-        <MyRoutes setSignedIn={setSignedIn} />
+        <MyRoutes setSignedIn={setSignedIn} setPage={setPage} />
       </main>
       <Footer signedIn={signedIn} />
     </BrowserRouter>

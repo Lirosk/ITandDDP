@@ -1,6 +1,8 @@
 import React from 'react';
 
-export function General() {
+export function General({setPage}) {
+    setPage('general');
+
     return (
         <>
             <h1>general</h1>

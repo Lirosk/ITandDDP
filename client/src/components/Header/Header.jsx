@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import "../../styles/components/header.css"
 
-export function Header({ signedIn }) {
+export function Header({ signedIn, page }) {
+
+    const links = [
+        {
+            path: 'general',
+            title: 'General'
+        },
+        {
+            path: 'my_playlists',
+            title: 'My playlists',
+        },
+        {
+            path: 'my_music',
+            title: 'My music',
+        }
+    ];
+
     return (
         <header>
             <div className="header__container">
@@ -11,15 +27,13 @@ export function Header({ signedIn }) {
                     {signedIn
                         ?
                         <>
-                            <Link className="header__ref" to="general">
-                                General
-                            </Link>
-                            <Link className="header__ref" to="my_playlists">
-                                My playlists
-                            </Link>
-                            <Link className="header__ref" to="my_music">
-                                My music
-                            </Link>
+                            {links.map(link => {
+                                return (
+                                    <Link className={`header__ref ${page === link.path ? 'here-i-am' : ''}`} to={link.path}>
+                                        {link.title}
+                                    </Link>
+                                );
+                            })}
                         </>
                         :
                         <>

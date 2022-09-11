@@ -8,15 +8,15 @@ import AfterSignin from '../Signin/AfterSignin';
 import RequireSignin from '../Signin/RequireSignin';
 
 
-export function MyRoutes({ setSignedIn }) {
-    return (
+export function MyRoutes({ setSignedIn, setPage }) {
+        return (
         <Routes>
             <Route element={<RequireSignin setSignedIn={setSignedIn} />} >
                 <Route element={<AfterSignin />}>
-                    <Route path='/general' element={<General />} />
-                    <Route path='/my_music' element={<MyMusic />} />
-                    <Route path='/my_playlists' element={<MyPlaylists />} />
-                    <Route path='/search' element={<Search />} />
+                    <Route path='/general' element={<General setPage={setPage} />} />
+                    <Route path='/my_music' element={<MyMusic setPage={setPage} />} />
+                    <Route path='/my_playlists' element={<MyPlaylists setPage={setPage} />} />
+                    <Route path='/search' element={<Search setPage={setPage} />} />
                 </Route>
             </Route>
             <Route path='*' element={<Navigate to='/general' reset />} />

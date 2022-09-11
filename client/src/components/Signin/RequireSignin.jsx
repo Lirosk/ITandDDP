@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import {Signin} from '../../pages/Signin';
+import { Signin } from '../../pages/Signin';
 
 
 const params = new URLSearchParams(window.location.search);
@@ -12,7 +12,10 @@ export default function RequireSignin({ setSignedIn }) {
     const accessToken = useAuth(code, setSignedIn);
     const loggedIn = Boolean(accessToken);
 
-    window.history.pushState({}, null, loggedIn ? '/general' : '/');
+
+    if (!loggedIn) {
+        window.history.pushState({}, null, '');
+    }
 
     return (
         loggedIn
@@ -22,4 +25,3 @@ export default function RequireSignin({ setSignedIn }) {
             <Signin />
     );
 }
- 
