@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { playerStateTracker } from '../js/controllers/player_state_tracker';
+import { playerStateTracker } from '../../js/controllers/player_state_tracker';
 import TrackContainer from './Track';
 
 export default function TracksContainer({ tracks }) {

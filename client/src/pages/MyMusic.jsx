@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import MusicSearch from '../components/MusicSearch.jsx';
-import TracksContainer from '../components/TracksContainer.jsx';
+import TracksContainer from '../components/Main/TracksContainer.jsx';
 import { checkForSavedTracks } from '../js/api.js';
 
 import { getTracks } from '../js/controllers/my_music.js';
 
 import '../styles/pages/my_music.css';
+
 
 export default function MyMusic() {
     const [tracks, setTracks] = useState([]);

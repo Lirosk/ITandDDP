@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Signin } from '../pages/Signin'
 
-import "../styles/components/header.css"
+import "../../styles/components/header.css"
 
 export function Header({ signedIn }) {
     return (

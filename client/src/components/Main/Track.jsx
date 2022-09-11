@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { addToQueue, pause, playTrack, removeFromQueue, removeSavedTrack, saveTrack } from '../js/api';
-import { msToTrackDuration } from '../js/utils';
+import { addToQueue, pause, playTrack, removeFromQueue, removeSavedTrack, saveTrack } from '../../js/api';
+import { msToTrackDuration } from '../../js/utils';
 
 export default function TrackContainer(props) {
     const track = props.track;

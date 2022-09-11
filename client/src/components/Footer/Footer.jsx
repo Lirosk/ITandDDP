@@ -1,12 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react';
+import { getLastPlayedTrack, seekTo, setVolume } from '../../js/api';
+import { playerStateTracker } from '../../js/controllers/player_state_tracker';
+import { msToTrackDuration } from '../../js/utils';
 
-import "../styles/components/footer.css";
+import ProgressSlider from './ProgressSlider';
+import VolumeSlider from './VolumeSlider';
 
-export function Footer({signedIn}) {
+import '../../styles/components/footer.css';
+
+
+export function Footer({ signedIn }) {
     if (!signedIn) {
         return null;
     }
-    
+
+    const [track, setTrack] = useState({});
+    const [progressPercent, setProgressPercent] = useState(0);
+    const [volumePercent, setVolumePercent] = useState(0);
+
+    useEffect(() => {
+        getLastPlayedTrack().then(track => {
+            playerStateTracker.addStateChangeHandler(
+                (...args) => true,
+                (_, state) => {
+                    setTrack({
+                        id: state.track_id,
+                        name: state.track_name,
+                        artist: state.artist,
+                        imageUrl: state.track_image_url,
+                        durationMs: state.duration_ms,
+                    });
+                    setProgressPercent(Math.round((Number(state.progress_ms) / Number(state.duration_ms)) * 100));
+                    setVolumePercent(Number(state.volume_percent) * 100);
+                }
+            );
+
+            setTrack({
+                id: track.id,
+                name: track.name,
+                artist: track.artists.map(artist => artist.name).join(', '),
+                imageUrl: track.images[2].url,
+                durationMs: track.duration_ms,
+            });
+        });
+    }, []);
+
+    const handleProgressChange = (value_percent) => {
+        value_percent = Number(value_percent);
+        seekTo(Math.floor(Number(track.durationMs) * (value_percent / 100)));
+        setProgressPercent(value_percent);
+    }
+
+    const handleVolumeChange = (volume_percent) => {
+        volume_percent = Number(volume_percent);
+        setVolume(volume_percent);
+        setVolumePercent(volume_percent);
+    };
+
+    const duration = msToTrackDuration(track.durationMs);
+
     return (
         <footer>
             <div className="footer__content">
@@ -36,26 +89,26 @@ export function Footer({signedIn}) {
                         </svg>
                     </button>
                     <div className="cover-wrap">
-                        <img src="../img/album_cover.png" className="player__cover" />
+                        <img src={track.imageUrl} className="player__cover" />
                     </div>
                     <div className="player__title-container">
                         <div className="audio__title-wrap">
                             <div className="audio__title">
                                 <span className="song__title">
-                                    Listened Author
+                                    {track.name}
                                 </span>
                                 <span className="song__performer">
-                                    Listened Performer
+                                    {track.artist}
                                 </span>
                             </div>
-                            <span className="audio__progress-time" data-ms="">mm:ss</span>
+                            <span className="audio__progress-time" data-ms="">{duration}</span>
                         </div>
                         <div className="audio__slider">
-                            <input className="slider progress" type="range" value="0" min="0" max="100" />
+                            <ProgressSlider value={progressPercent} handleProgressChange={handleProgressChange} />
                         </div>
                     </div>
                     <div className="player__volume">
-                        <input className="slider volume" type="range" value="0" min="0" max="100" />
+                        <VolumeSlider value={volumePercent} handleVolumeChange={handleVolumeChange} />
                     </div>
                     <button className="player__shuffle">
                         <svg className="icon" viewBox="0 0 20 16" width="20px" height="16px">

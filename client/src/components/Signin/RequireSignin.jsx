@@ -1,8 +1,7 @@
 import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import useAuth from '../hooks/useAuth';
-import { loginUserViaServer } from '../js/api';
-import { Signin } from '../pages/Signin';
+import { Outlet } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import {Signin} from '../../pages/Signin';
 
 
 const params = new URLSearchParams(window.location.search);
@@ -26,3 +25,4 @@ export default function RequireSignin({ setSignedIn }) {
             <Signin />
     );
 }
+ 

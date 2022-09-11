@@ -1,11 +1,11 @@
 import React from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
-import { General } from '../pages/General'
-import MyMusic from '../pages/MyMusic';
-import MyPlaylists from '../pages/MyPlaylists';
-import Search from '../pages/Search';
-import AfterSignin from './AfterSignin';
-import RequireSignin from './RequireSignin';
+import { General } from '../../pages/General';
+import MyMusic from '../../pages/MyMusic';
+import MyPlaylists from '../../pages/MyPlaylists';
+import Search from '../../pages/Search';
+import AfterSignin from '../Signin/AfterSignin';
+import RequireSignin from '../Signin/RequireSignin';
 
 
 export function MyRoutes({ setSignedIn }) {
