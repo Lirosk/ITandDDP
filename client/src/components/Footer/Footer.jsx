@@ -27,6 +27,10 @@ export function Footer({ signedIn }) {
             playerStateTracker.addStateChangeHandler(
                 (...args) => true,
                 (_, state) => {
+                    if (!state.track_id) {
+                        return;
+                    }
+
                     setTrack({
                         id: state.track_id,
                         name: state.track_name,
