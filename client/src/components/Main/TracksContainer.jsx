@@ -16,7 +16,7 @@ export default function TracksContainer({ tracks }) {
         <>
             {tracks.map((track, i) => {
                 return (
-                    <TrackContainer key={track.id} track={track} playing={track.id === playingId} setPlayingId={setPlayingId}/>
+                    <TrackContainer key={track.id} track={track} playing={track.id === playingId} />
                 );
             })}
         </>

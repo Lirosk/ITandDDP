@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 import { addToQueue, pause, playTrack, removeFromQueue, removeSavedTrack, saveTrack } from '../../js/api';
 import { msToTrackDuration } from '../../js/utils';
 
-export default function TrackContainer(props) {
-    const track = props.track;
-
-    const playing = props.playing;
-    const setPlayingId = props.setPlayingId;
-
+export default function TrackContainer({track, playing}) {
     const [added, setAdded] = useState(track.added);
     const [next, setNext] = useState(track.next);
 
@@ -24,8 +19,6 @@ export default function TrackContainer(props) {
             playTrack(track.id);
             setNext(false);
         }
-
-        setPlayingId(track.id);
     };
 
     const addTrack = () => {
