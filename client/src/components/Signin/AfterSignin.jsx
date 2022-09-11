@@ -1,16 +1,12 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
 import useDevice from '../../hooks/useDevice';
-import MusicSearch from '../Main/MusicSearch';
+import Main from '../Main/Main';
 
 
 export default function AfterSignin() {
   const deviceId = useDevice();
 
   return (
-    <div className="general-container">
-      <MusicSearch />
-      <Outlet />
-    </div>
+    <Main />
   );
 }
