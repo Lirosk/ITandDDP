@@ -11,11 +11,8 @@ const state = params.get('state');
 export default function RequireSignin({ setSignedIn }) {
     const accessToken = useAuth(code, setSignedIn);
     const loggedIn = Boolean(accessToken);
-    // alert(accessToken);
 
-    if (!loggedIn) {
-        window.history.pushState({}, null, '/');
-    }
+    window.history.pushState({}, null, loggedIn ? '/general' : '/');
 
     return (
         loggedIn
