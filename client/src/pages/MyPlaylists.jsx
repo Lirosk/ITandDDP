@@ -7,7 +7,7 @@ import { getUsersAlbums } from '../js/api';
 
 import '../styles/pages/my_playlists.css';
 
-export default function MyPlaylists({ setPage }) {
+export default function MyPlaylists({ setPage, setPopupState }) {
   useEffect(
     () => {
       setPage('my_playlists');
@@ -24,7 +24,7 @@ export default function MyPlaylists({ setPage }) {
   return (
     <div className="playlists-container">
       <div className="multi-line-playlists">
-        <AlbumsContainer albums={albums} />
+        <AlbumsContainer isPlaylists={false} setPopupState={setPopupState} albums={albums} />
       </div>
     </div>
   )

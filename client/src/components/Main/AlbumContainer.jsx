@@ -2,8 +2,15 @@ import React, { useState } from 'react'
 import { playerStateTracker } from '../../js/controllers/player_state_tracker';
 import AlbumCover from './AlbumCover';
 
-export default function AlbumsContainer({ albums }) {
+export default function AlbumsContainer({ albums, setPopupState, isPlaylists }) {
     const [playingId, setPlayingId] = useState('');
+
+    const showPopup = (id) => {
+        setPopupState({
+            id,
+            isPlaylist: isPlaylists,
+        });
+    };
 
     playerStateTracker.addStateChangeHandler(
         (...args) => true,
@@ -16,7 +23,7 @@ export default function AlbumsContainer({ albums }) {
         <>
             {albums.map(album => {
                 return (
-                    <AlbumCover key={album.id} album={album} playing={playingId === album.id} />
+                    <AlbumCover showPopup={showPopup} key={album.id} album={album} playing={playingId === album.id} />
                 );
             })}
         </>

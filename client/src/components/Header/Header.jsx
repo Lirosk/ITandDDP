@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import "../../styles/components/header.css"
 
-export function Header({ signedIn, page, logoutHandler }) {
+export function Header({ setPopupState, signedIn, page, logoutHandler }) {
     const links = [
         {
             path: 'general',
@@ -19,6 +19,10 @@ export function Header({ signedIn, page, logoutHandler }) {
         }
     ];
 
+    const hidePopup = () => {
+        setPopupState({});
+    };
+
     return (
         <header>
             <div className="header__container">
@@ -28,7 +32,7 @@ export function Header({ signedIn, page, logoutHandler }) {
                         <>
                             {links.map(link => {
                                 return (
-                                    <Link key={link.path} className={`header__ref ${page === link.path ? 'here-i-am' : ''}`} to={link.path}>
+                                    <Link onClick={hidePopup} key={link.path} className={`header__ref ${page === link.path ? 'here-i-am' : ''}`} to={link.path}>
                                         {link.title}
                                     </Link>
                                 );

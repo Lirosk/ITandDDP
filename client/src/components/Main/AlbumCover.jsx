@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { pause, playAlbum } from '../../js/api';
 
-export default function AlbumCover({ album, playing }) {
+export default function AlbumCover({ album, playing, showPopup }) {
     const performer = album.artists.map(artist => artist.name).join(', ');
     const image = album.images[1] ? album.images[1] : album.images[0];
 
-    const handlePlayAlbum = ()=>{
+    const handlePlayAlbum = () => {
         if (playing) {
             pause();
         }
@@ -16,14 +16,14 @@ export default function AlbumCover({ album, playing }) {
         }
     };
 
-    const handleShowPopup = ()=>{
-        // TODO
+    const handleShowPopup = () => {
+        showPopup(album.id);
     };
 
     return (
         <div className="cover-container">
             <div className="album__cover">
-                <button className="button-icon">
+                <button onClick={handleShowPopup} className="button-icon">
                     <img className="icon" src={image.url} alt={album.name} />
                 </button>
                 <div className="play-pause-button-wrap">

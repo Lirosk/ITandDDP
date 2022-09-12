@@ -11,11 +11,13 @@
   padding-bottom: 69px;
 }
 
+.popup.activated {
+  display: block;
+}
+
 .popup .selected-playlist-container {
   margin-top: 10%;
 }
-
-
 
 .popup__back-wrap {
   position: fixed;

@@ -6,7 +6,7 @@ import FoundTracks from '../components/Search/FoundTracks';
 
 import '../styles/pages/search.css';
 
-export default function Search({ setPage }) {
+export default function Search({ setPage, setPopupState }) {
   const [q, setQ] = useState('');
 
   useEffect(
@@ -22,7 +22,9 @@ export default function Search({ setPage }) {
 
   return (
     <>
-      <Category name='Found albums' element={<FoundAlbums q={q} />} />
+      <Category name='Found albums'>
+        <FoundAlbums setPopupState={setPopupState} q={q} />
+      </Category>
       <div className="found-tracks">
         <div className="one-line-playlists__tools">
           <h3 className="primary-text">Found tracks</h3>

@@ -5,7 +5,7 @@ import { getItems } from '../../js/api';
 import { AlbumFromEntry } from '../../js/utils';
 import AlbumsContainer from '../Main/AlbumContainer';
 
-export default function FoundAlbums({ q }) {
+export default function FoundAlbums({ q, setPopupState }) {
     const [albums, setAlbums] = useState([]);
 
     useEffect(()=>{
@@ -50,7 +50,7 @@ export default function FoundAlbums({ q }) {
 
     return (
         <>
-            <AlbumsContainer albums={albums} />
+            <AlbumsContainer isPlaylists={false} setPopupState={setPopupState} albums={albums} />
             <div ref={lastElement} style={{ backgroundColor: '#FFF', height: '1px', width: '1px' }}></div>
         </>
     )

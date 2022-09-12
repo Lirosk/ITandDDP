@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Category({ name, element }) {
+export default function Category({ name, children }) {
     const expandBtnStates = ['Expand', 'Collapse'];
     const [expandBtnState, setExpandBtnState] = useState(0);
 
@@ -15,7 +15,7 @@ export default function Category({ name, element }) {
                 <button onClick={handleExpand} className={`ref-text expand-btn ${expandBtnState ? '' : 'expanded'}`}>{expandBtnStates[expandBtnState]}</button>
             </div>
             <div className={`one-line-playlists__container ${expandBtnState ? 'expanded' : ''}`}>
-                {element}
+                {children}
             </div>
         </div>
     )

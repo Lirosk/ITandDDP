@@ -7,7 +7,7 @@ import { getCategories, getCathegory, getItems, getRecomendations } from '../js/
 
 import '../styles/pages/general.css'
 
-export function General({ setPage }) {
+export function General({ setPage, setPopupState }) {
     const [categories, setCategories] = useState([]);
     const lastElement = useRef();
 
@@ -43,7 +43,11 @@ export function General({ setPage }) {
     return (
         <>
             {categories.map(category => {
-                return <Category name={category.name} element={<AlbumsContainer albums={category.playlists} />} />
+                return (
+                    <Category setPopupState={setPopupState} name={category.name} >
+                        <AlbumsContainer isPlaylists={true} setPopupState={setPopupState} albums={category.playlists} />
+                    </Category>
+                );
             })}
             <div ref={lastElement} style={{ height: '1px', border: 'none', backgroundColor: 'transparent' }}></div>
         </>
