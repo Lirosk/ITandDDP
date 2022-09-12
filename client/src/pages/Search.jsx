@@ -27,7 +27,7 @@ export default function Search({ setPage }) {
         <div className="one-line-playlists__tools">
           <h3 className="primary-text">Found tracks</h3>
         </div>
-        <div className="found-tracks-container">
+        <div className="found-tracks__row-container">
           <FoundTracks q={q} />
         </div>
       </div>
