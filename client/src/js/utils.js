@@ -114,3 +114,15 @@ export function msToTrackDuration(duration_ms) {
 
     return `${mins}:${String(seconds).padStart(2, 0)}`;
 }
+
+export function isStringInvalid(str) {
+    str = str.trim();
+    
+    if (str.length === 0) {
+        return;
+    }
+
+    const match = str.match(/[^\w ]+?/);
+    return Boolean(match);
+    
+}

@@ -5,10 +5,10 @@ import { getItems } from '../../js/api';
 import { AlbumFromEntry } from '../../js/utils';
 import AlbumsContainer from '../Main/AlbumContainer';
 
-export default function FoundAlbums({ q, setPopupState }) {
+export default function FoundAlbums({ setFoundAlbums, q, setPopupState }) {
     const [albums, setAlbums] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log('clearing albums');
         setAlbums([]);
         sessionStorage.setItem(
@@ -34,6 +34,8 @@ export default function FoundAlbums({ q, setPopupState }) {
             predicate: album => album.album_type === 'album',
         });
 
+        setFoundAlbums(Boolean(items.length));
+
         if (items.length === 0) {
             return;
         }
@@ -51,7 +53,7 @@ export default function FoundAlbums({ q, setPopupState }) {
     return (
         <>
             <AlbumsContainer isPlaylists={false} setPopupState={setPopupState} albums={albums} />
-            <div ref={lastElement} style={{ backgroundColor: '#FFF', height: '1px', width: '1px' }}></div>
+            <div ref={lastElement} style={{ backgroundColor: 'transparent', height: '1px', width: '1px' }}></div>
         </>
     )
 }

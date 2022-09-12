@@ -5,7 +5,7 @@ import { getItems, getNextItems } from '../../js/api';
 import { TrackFromEntry } from '../../js/utils';
 import TracksContainer from '../Main/TracksContainer';
 
-export default function FoundTracks({ q }) {
+export default function FoundTracks({ setFoundTracks, q }) {
     const [tracks, setTracks] = useState([]);
 
     const market = sessionStorage.getItem('country');
@@ -32,6 +32,8 @@ export default function FoundTracks({ q }) {
             extractItemFromEntry: TrackFromEntry,
             attr: 'tracks',
         });
+
+        setFoundTracks(Boolean(items.length));        
 
         if (items.length === 0) {
             return;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { isStringInvalid } from '../../js/utils';
 
 export default function MusicSearch({ page }) {
     const navigate = useNavigate();
@@ -10,11 +11,16 @@ export default function MusicSearch({ page }) {
         const q = qRef.current.value;
         qRef.current.value = '';
 
+        if (isStringInvalid(q)) {
+            alert('stop it get some help');
+            return;
+        }
+
         if (page === 'search' || window.location.pathname.includes('search')) {
             window.location.search = `q=${q}`;
         }
         else {
-            navigate(`/search?q=${q}`);
+            navigate(`/search?q=${encodeURI(q)}`);
         }
     };
 
