@@ -39,6 +39,10 @@ export async function getUserData() {
     return GET(
         UserUrl,
         data => {
+            if (!data) {
+                return;
+            }
+
             sessionStorage.setItem(usernameKey, data.display_name);
             sessionStorage.setItem(countryKey, data.country);
         });

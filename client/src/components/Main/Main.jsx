@@ -14,7 +14,6 @@ import GeneralContainer from './GeneralContainer';
 export function Main() {
     const [signedIn, setSignedIn] = useState(false);
     const [page, setPage] = useState('/');
-    const [q, setQ] = useState('');
 
     const logoutHandler = () => {
         sessionStorage.clear();
@@ -27,7 +26,7 @@ export function Main() {
             <Header signedIn={signedIn} logoutHandler={logoutHandler} page={page} />
             <main>
                 <Routes>
-                    <Route element={<RequireSignin setSignedIn={setSignedIn} />} >
+                    <Route element={<RequireSignin signedIn={signedIn} setSignedIn={setSignedIn} />} >
                         <Route element={<GeneralContainer page={page} />}>
                             <Route path='/general' element={<General setPage={setPage} />} />
                             <Route path='/my_music' element={<MyMusic setPage={setPage} />} />

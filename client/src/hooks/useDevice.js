@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { getAvailableDevice } from '../js/api';
 
-export default function useDevice() {
+export default function useDevice(signedIn) {
     const [deviceId, setDeviceId] = useState(0);
 
     useEffect(() => {
+        if (!signedIn) {
+            return;
+        }
+
         getAvailableDevice().then(res => {
             if (!res) {
                 return;
@@ -15,7 +19,5 @@ export default function useDevice() {
         }).catch((error) =>{
             console.log(error);
         })
-    }, [deviceId]);
-
-    return deviceId;
+    }, [signedIn]);
 }
