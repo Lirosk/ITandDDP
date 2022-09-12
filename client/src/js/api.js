@@ -470,7 +470,7 @@ async function request(url, method, body = null) {
     });
 }
 
-async function refreshAccessToken() {
+export async function refreshAccessToken() {
     axios.post('http://localhost:3001/refresh', {
         refreshToken: sessionStorage.getItem(refreshTokenKey),
         accessToken: sessionStorage.getItem(accessTokenKey),

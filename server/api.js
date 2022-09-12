@@ -108,21 +108,21 @@ function requestAccessToken(credentials) {
     });
 }
 
-function refreshAccessToken(tokenType, accessToken, refreshToken) {
+function refreshAccessToken(tokenType, accessToken, refreshToken, clientId) {
     return fetch(`https://accounts.spotify.com/api/token`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-            'Authorization': `${tokenType} ${accessToken}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: {
+        body: new URLSearchParams({
+            'client_id': clientId,
             'grant_type': 'refresh_token',
             'refresh_token': refreshToken,
-        }
+        })
     }).then(response => {
         return response.json().then(data => {
             const accessToken = data.access_token;
-            const expiresIn = data.expiresIn;
+            const expiresIn = data.expires_in;
 
             return { accessToken, expiresIn };
         })

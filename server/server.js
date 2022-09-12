@@ -10,10 +10,12 @@ app.use(bodyParser.json());
 
 let credentials = {};
 
+const clientId = '706b7ab1e375491da3603f6f52df368c'
+
 app.post('/authorize', (req, res) => {
     const redirectUri = req.body.redirectUri;
     loginUser(
-        '706b7ab1e375491da3603f6f52df368c',
+        clientId,
         redirectUri,
     ).then(urlAndCreds => {
         credentials = urlAndCreds.credentials;
@@ -39,7 +41,7 @@ app.post('/refresh', (req, res) => {
     const accessToken = req.body.accessToken;
     const tokenType = req.body.tokenType;
 
-    refreshAccessToken(tokenType, accessToken, refreshToken).then(data => {
+    refreshAccessToken(tokenType, accessToken, refreshToken, clientId).then(data => {
         res.json({
             data
         });
