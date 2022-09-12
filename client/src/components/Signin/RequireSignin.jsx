@@ -1,6 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import useDevice from '../../hooks/useDevice';
+import { getUserData } from '../../js/api';
 import { Signin } from '../../pages/Signin';
 
 
@@ -15,6 +17,10 @@ export default function RequireSignin({ setSignedIn }) {
 
     if (!loggedIn) {
         window.history.pushState({}, null, '');
+    }
+    else {
+        const deviceId = useDevice();
+        getUserData();
     }
 
     setSignedIn(loggedIn);

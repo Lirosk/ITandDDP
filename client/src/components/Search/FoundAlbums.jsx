@@ -7,6 +7,16 @@ import AlbumsContainer from '../Main/AlbumContainer';
 
 export default function FoundAlbums({ q }) {
     const [albums, setAlbums] = useState([]);
+
+    useEffect(()=>{
+        console.log('clearing albums');
+        setAlbums([]);
+        sessionStorage.setItem(
+            nextAlbums,
+            `https://api.spotify.com/v1/search?q=${q}&type=album&include_external=audio&offset=0&limit=50&market=${market}`,
+        );
+    }, [q]);
+
     const lastElement = useRef();
 
     const market = sessionStorage.getItem('country');
@@ -28,7 +38,6 @@ export default function FoundAlbums({ q }) {
             return;
         }
 
-        console.log({items});
         setAlbums([...albums, ...items]);
         sessionStorage.setItem(nextAlbums, next);
     };
@@ -38,14 +47,6 @@ export default function FoundAlbums({ q }) {
     useObserver(lastElement, true, isTracksLoading, () => {
         fetchAlbums(sessionStorage.getItem(nextAlbums));
     });
-
-    useEffect(
-        () => {
-            sessionStorage.setItem(
-                nextAlbums,
-                `https://api.spotify.com/v1/search?q=${q}&type=album&include_external=audio&offset=0&limit=50${market ? `&market=${market}` : ''}`,
-            );
-        }, [q]);
 
     return (
         <>

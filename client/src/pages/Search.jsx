@@ -3,8 +3,6 @@ import { Navigate } from 'react-router-dom';
 import Category from '../components/Main/Category';
 import FoundAlbums from '../components/Search/FoundAlbums';
 import FoundTracks from '../components/Search/FoundTracks';
-import { getNextItems } from '../js/api';
-import { TrackFromEntry } from '../js/utils';
 
 import '../styles/pages/search.css';
 
@@ -20,7 +18,6 @@ export default function Search({ setPage }) {
 
       setPage('search');
       setQ(query);
-      console.log(q);
     }, []);
 
   return (

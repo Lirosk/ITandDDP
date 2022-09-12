@@ -7,9 +7,19 @@ import TracksContainer from '../Main/TracksContainer';
 
 export default function FoundTracks({ q }) {
     const [tracks, setTracks] = useState([]);
-    const lastElement = useRef();
 
     const market = sessionStorage.getItem('country');
+    useEffect(() => {
+        console.log('clearing tracks');
+        setTracks([]);
+        sessionStorage.setItem(
+            nextTracks,
+            `https://api.spotify.com/v1/search?q=${q}&type=track&include_external=audio&offset=0&limit=50&market=${market}`
+        ); 
+    }, [q])
+
+    const lastElement = useRef();
+    
     const nextTracks = 'nextTracks';
 
     const loadTracks = async (url) => {
@@ -36,14 +46,6 @@ export default function FoundTracks({ q }) {
     useObserver(lastElement, true, isTracksLoading, () => {
         fetchTracks(sessionStorage.getItem(nextTracks));
     });
-
-    useEffect(
-        () => {
-            sessionStorage.setItem(
-                nextTracks,
-                `https://api.spotify.com/v1/search?q=${q}&type=track&include_external=audio&offset=0&limit=50${market ? `&market=${market}` : ''}`
-            );
-        }, [q]);
 
     return (
         <>
