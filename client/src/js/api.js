@@ -44,6 +44,29 @@ export async function getUserData() {
         });
 }
 
+export async function getCathegory(url) {
+    return GET(
+        url,
+        data => {
+            if (!data) {
+                return;
+            }
+
+            const category = data.categories.items[0];
+
+            if (!category) {
+                return;
+            }
+
+            return getCathegoryPlaylists(category.id).then(playlists => {
+                category.playlists = playlists;
+                const next = data.categories.next;
+                return { category, next };
+            });
+        }
+    );
+}
+
 export async function getRecomendations(limit, onEachLoadedCategory) {
     let market = sessionStorage.getItem(countryKey);
 
@@ -79,17 +102,17 @@ export async function getRecomendations(limit, onEachLoadedCategory) {
                     onEachLoadedCategory(category);
                 });
             }
+
+            return data.categories.next;
         }
     );
 }
 
 function getCathegoryPlaylists(category_id) {
     return GET(
-        `https://api.spotify.com/v1/browse/categories/${category_id}/playlists?offset=0&limit=10`,
+        `https://api.spotify.com/v1/browse/categories/${category_id}/playlists?offset=0&limit=20`,
         data => {
             const playlists = [];
-
-            // console.log(data.playlists.items);
 
             const container = data.playlists.items;
             for (const i in container) {
@@ -408,9 +431,10 @@ async function request(url, method, body = null) {
         if (![2, 3].includes(Math.floor(response.status / 100))) {
             if (response.status === 401) {
                 return refreshAccessToken().then(() => {
-                    return request(url, method, body).catch(error =>{
-                        console.log(error);
-                    });
+                    return request(url, method, body);
+                }).catch(error => {
+                    console.log(error);
+                    sessionStorage.clear();
                 });
             }
 
