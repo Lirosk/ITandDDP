@@ -28,6 +28,7 @@ export default function FoundAlbums({ q }) {
             return;
         }
 
+        console.log({items});
         setAlbums([...albums, ...items]);
         sessionStorage.setItem(nextAlbums, next);
     };
