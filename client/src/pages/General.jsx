@@ -3,7 +3,7 @@ import AlbumsContainer from '../components/Main/AlbumContainer';
 import Category from '../components/Main/Category';
 import { useFetching } from '../hooks/useFetching';
 import { useObserver } from '../hooks/useObserver';
-import { getCategories, getCathegory, getItems, getRecomendations } from '../js/api';
+import { getCathegory } from '../js/api';
 
 import '../styles/pages/general.css'
 

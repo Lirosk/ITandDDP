@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import AlbumsContainer from '../components/Main/AlbumContainer';
-import AlbumCover from '../components/Main/AlbumCover';
 import { getUsersAlbums } from '../js/api';
 
 import '../styles/pages/my_playlists.css';
