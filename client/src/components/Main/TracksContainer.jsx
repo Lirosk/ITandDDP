@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { playerStateTracker } from '../../js/controllers/player_state_tracker';
+import { playerStateTracker } from '../../js/player_state_tracker';
 import AlbumTrack from '../Popup/AlbumTrack';
 import Track from './Track';
 

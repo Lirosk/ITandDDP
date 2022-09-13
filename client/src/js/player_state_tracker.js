@@ -1,4 +1,4 @@
-import { getPlaybackStatus } from "../api.js";
+import { getPlaybackStatus } from "./api.js";
 
 class PlayerStateTracker {
     constructor() {

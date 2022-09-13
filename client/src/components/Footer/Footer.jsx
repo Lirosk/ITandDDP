@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { getLastPlayedTrack, playNext, playPrevious, playTrack, seekTo, setVolume as apiSetVolume, setRepeat as apiSetRepeat, setShuffle as apiSetShuffle, pause } from '../../js/api';
-import { playerStateTracker } from '../../js/controllers/player_state_tracker';
+import { playerStateTracker } from '../../js/player_state_tracker';
 import { msToTrackDuration } from '../../js/utils';
 
 import ProgressSlider from './ProgressSlider';

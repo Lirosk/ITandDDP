@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Routes, Navigate, BrowserRouter } from 'react-router-dom';
-import { playerStateTracker } from '../../js/controllers/player_state_tracker';
+import { playerStateTracker } from '../../js/player_state_tracker';
 import { General } from '../../pages/General';
 import MyMusic from '../../pages/MyMusic';
 import MyPlaylists from '../../pages/MyPlaylists';
