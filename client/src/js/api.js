@@ -35,7 +35,11 @@ export function loginUserViaServer() {
 }
 
 
-export async function getUserData() {
+export async function getUserData(signedIn) {
+    if (!signedIn) {
+        return;
+    }
+
     return GET(
         UserUrl,
         data => {
@@ -445,10 +449,16 @@ async function request(url, method, body = null) {
             return response.json().then(
                 data => {
                     if (response.status === 404 && data.error.message === 'Device not found') {
+                        sessionStorage.removeItem('available_device');
+
+                        if (url === 'https://api.spotify.com/v1/me/player/devices') {
+                            return;
+                        }
+
                         return getAvailableDevice().then((res) => {
                             if (!res) {
                                 alert('No available devices');
-                                getAvailableDevice();
+                                return;
                             }
 
                             return request(url, method, body);

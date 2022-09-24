@@ -18,6 +18,6 @@ export default function useDevice(signedIn) {
             sessionStorage.setItem('available_device', res.id);
         }).catch((error) =>{
             console.log(error);
-        })
+        });
     }, [signedIn]);
 }

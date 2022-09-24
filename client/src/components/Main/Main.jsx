@@ -10,6 +10,7 @@ import { Header } from '../Header/Header';
 import RequireSignin from '../Signin/RequireSignin';
 import GeneralContainer from './GeneralContainer';
 import Popup from '../Popup/Popup';
+import { pause } from '../../js/api';
 
 
 export function Main() {
@@ -25,6 +26,7 @@ export function Main() {
         sessionStorage.clear();
         playerStateTracker.clearHandlers();
         setSignedIn(false);
+        pause();
     }
 
     return (

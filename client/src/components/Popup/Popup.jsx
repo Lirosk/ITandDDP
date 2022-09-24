@@ -87,6 +87,7 @@ export default function Popup({ popupState, setPopupState }) {
                                     </button>}
                             </div>
                         </div>
+                        <button onClick={hidePopup} class="close-popup-btn ref-text">Close</button>
                     </div>
                     <div className="playlist__tracks-container">
                         <TracksContainer areNumeratedTracks={true} tracks={album.tracks} />

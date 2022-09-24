@@ -29,3 +29,9 @@
   background: transparent;
   z-index: 0;
 }
+
+.close-popup-btn {
+  margin-left: auto;
+  margin-top: 10px;
+  margin-right: 20px;
+}
